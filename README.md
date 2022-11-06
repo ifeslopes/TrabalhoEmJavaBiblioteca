@@ -1,4 +1,4 @@
-# Trabalho Sistema de Gerenciamento de
+# Sistema de Gerenciamento de Biblioteca
 
 ### Descrição do problema
 O projeto de programação é o desenvolvimento de uma versão eletrônica básica de um Sistema de
