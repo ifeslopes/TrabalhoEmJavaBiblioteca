@@ -1,4 +1,4 @@
-package model;
+package classes;
 
 public class Periodicos extends Livro{
     private double fatorDeEmpactor;

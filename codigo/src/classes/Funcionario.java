@@ -1,4 +1,4 @@
-package model;
+package classes;
 
 import java.util.Date;
 
@@ -7,8 +7,10 @@ public class Funcionario extends Pessoa{
     private String setor;
     private String login;
     private String senha;
-
-    public Funcionario(int matricula, String nome, String endereco, Date dataEngresso, String setor, String login, String senha) {
+    public Funcionario(){
+        super();
+    }
+    public Funcionario(int matricula, String nome, String endereco, String dataEngresso, String setor, String login, String senha) {
         super(matricula, nome, endereco, dataEngresso);
         this.setor = setor;
         this.login = login;

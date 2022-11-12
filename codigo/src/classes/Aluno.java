@@ -1,4 +1,4 @@
-package model;
+package classes;
 
 import java.util.Date;
 
@@ -7,7 +7,7 @@ public class Aluno  extends Pessoa{
 
     private double multa;
 
-    public Aluno(int matricula, String nome, String endereco, Date dataEngresso, String curso, double multa) {
+    public Aluno(int matricula, String nome, String endereco, String dataEngresso, String curso, double multa) {
         super(matricula, nome, endereco, dataEngresso);
         this.curso = curso;
         this.multa = multa;

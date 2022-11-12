@@ -1,4 +1,4 @@
-package model;
+package classes;
 
 public class Livro {
     private int codigo;

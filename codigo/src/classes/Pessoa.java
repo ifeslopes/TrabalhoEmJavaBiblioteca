@@ -1,4 +1,4 @@
-package model;
+package classes;
 
 import java.util.Date;
 
@@ -6,9 +6,9 @@ public class Pessoa {
     private int matricula;
     private String nome;
     private String endereco;
-    private Date dataEngresso;
-
-    public Pessoa(int matricula, String nome, String endereco, Date dataEngresso) {
+    private String dataEngresso;
+    public Pessoa(){}
+    public Pessoa(int matricula, String nome, String endereco, String dataEngresso) {
         this.matricula = matricula;
         this.nome = nome;
         this.endereco = endereco;
@@ -39,11 +39,11 @@ public class Pessoa {
         this.endereco = endereco;
     }
 
-    public Date getDataEngresso() {
+    public String getDataEngresso() {
         return dataEngresso;
     }
 
-    public void setDataEngresso(Date dataEngresso) {
+    public void setDataEngresso(String dataEngresso) {
         this.dataEngresso = dataEngresso;
     }
 
