@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class FuncionarioVet {
 
-    Scanner entrada =new Scanner(System.in);
+
     private List<Funcionario> funcionarioVets = new ArrayList<>();
 
     public FuncionarioVet() {}

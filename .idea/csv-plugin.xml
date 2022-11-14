@@ -10,13 +10,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/codigo/src/auxiliar/Base_Dados/teste.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
       </map>
     </option>
   </component>

@@ -7,11 +7,13 @@ import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
-public class Login extends SalverCarregarCsv {
+public abstract class Login extends SalverCarregarCsv {
 
     public static boolean iniciar(){
         File diretorio =new File("codigo/src/auxiliar/Base_Dados");
         boolean inicio =true;
+
+
         while (inicio) {
 
             if (diretorio.exists()) {
