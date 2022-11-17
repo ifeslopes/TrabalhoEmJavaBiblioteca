@@ -1,15 +1,15 @@
-package auxiliar;
+package utilitarios;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class SalverCarregarCsv {
+public  class SalverCarregarCsv {
     public SalverCarregarCsv() {
     }
 
-    public static void slavar(String salvar, String nome){
-        File diretorio =new File("codigo/src/auxiliar/Base_Dados");
+    public static void salvar(String salvar, String nome){
+        File diretorio =new File("codigo/src/utilitarios/Base_Dados");
         //criar diretorio
         //diretorio.mkdir();
         File arquivo = new File(diretorio,nome+".csv");
@@ -32,7 +32,7 @@ public abstract class SalverCarregarCsv {
 
             List<String> resultado =new ArrayList<>();
             try {
-            File diretorio =new File("codigo/src/auxiliar/Base_Dados");
+            File diretorio =new File("codigo/src/utilitarios/Base_Dados");
             File arquivo = new File(diretorio,planilha);
             FileReader lerArquivo = new  FileReader(arquivo);
             BufferedReader bufferedReader =new BufferedReader(lerArquivo);

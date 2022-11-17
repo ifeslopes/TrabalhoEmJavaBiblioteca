@@ -1,9 +1,13 @@
 package classes;
 
-public class Periodicos extends Livro{
+public class Periodico extends Livro{
     private double fatorDeEmpactor;
 
-    public Periodicos(int codigo, String autores, String titulo, char tipo, String issn) {
+    public Periodico() {
+
+    }
+
+    public Periodico(int codigo, String autores, String titulo, char tipo, String issn) {
         super(codigo, autores, titulo, tipo, issn);
     }
 

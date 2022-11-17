@@ -1,15 +1,19 @@
 package classes;
 
-import java.util.Date;
+
+
 
 public class Emprestimo {
+
     private int codigo;
     private int matriculaCliente;
     private int matriculaFuncionario;
-    private Date dataEmprestimo;
-    private Date dataDevolucao;
+    private String dataEmprestimo;
+    private String dataDevolucao;
 
-    public Emprestimo(int codigo, int matriculaCliente, int matriculaFuncionario, Date dataEmprestimo, Date dataDevolucao) {
+    public Emprestimo() {
+    }
+    public Emprestimo(int codigo, int matriculaCliente, int matriculaFuncionario, String dataEmprestimo, String dataDevolucao) {
         this.codigo = codigo;
         this.matriculaCliente = matriculaCliente;
         this.matriculaFuncionario = matriculaFuncionario;
@@ -41,19 +45,19 @@ public class Emprestimo {
         this.matriculaFuncionario = matriculaFuncionario;
     }
 
-    public Date getDataEmprestimo() {
+    public String getDataEmprestimo() {
         return dataEmprestimo;
     }
 
-    public void setDataEmprestimo(Date dataEmprestimo) {
+    public void setDataEmprestimo(String dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
     }
 
-    public Date getDataDevolucao() {
+    public String getDataDevolucao() {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(Date dataDevolucao) {
+    public void setDataDevolucao(String dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 

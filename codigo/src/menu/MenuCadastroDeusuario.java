@@ -1,5 +1,6 @@
 package menu;
 
+import vetorclasses.AlunoVet;
 import vetorclasses.FuncionarioVet;
 
 import java.util.Scanner;
@@ -31,6 +32,14 @@ public class MenuCadastroDeusuario {
                    funcionarioVet.cadastra();
 
                     break;
+                case 3:
+                    // chama o menu de gerenciamento de livros
+                    //menuGerenciarLivros();
+                    AlunoVet alunoVet= new AlunoVet();
+                    alunoVet.cadastra();
+
+                    break;
+
 
 
                 case 5:

@@ -1,4 +1,4 @@
-package auxiliar;
+package utilitarios;
 
 import classes.Funcionario;
 import vetorclasses.FuncionarioVet;
@@ -7,10 +7,23 @@ import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
-public abstract class Login extends SalverCarregarCsv {
+public  class Login extends SalverCarregarCsv {
+    private static String nomeFuncionarioLogado;
+
+    private static int matriculaFuncionarioLogado;
+
+    public  static String getNomeFuncionarioLogado() {
+        return nomeFuncionarioLogado;
+    }
+    public static int getMatriculaFuncionarioLogado() {
+        return matriculaFuncionarioLogado;
+    }
+
+
+
 
     public static boolean iniciar(){
-        File diretorio =new File("codigo/src/auxiliar/Base_Dados");
+        File diretorio =new File("codigo/src/utilitarios/Base_Dados");
         boolean inicio =true;
 
 
@@ -39,11 +52,11 @@ public abstract class Login extends SalverCarregarCsv {
         boolean menu =true;
 
         while (menu){
-            System.out.println("\n\n ::TELA DE LOGIN::");
-            System.out.println("Emtre com login:");
+            System.out.println("\n\n:: TELA DE LOGIN ::");
+            System.out.println("Entre com login:");
             String login = entrada.nextLine();
 
-            System.out.println("Emtre com senha:");
+            System.out.println("Entre com senha:");
             String senha = entrada.nextLine();
 
             for (int i = 0; i < lista.getFuncionarioVets().size() ; i++) {
@@ -52,8 +65,11 @@ public abstract class Login extends SalverCarregarCsv {
                 if(lista.getFuncionarioVets().get(i).getLogin().equalsIgnoreCase(login)
                         && lista.getFuncionarioVets().get(i).getSenha().equalsIgnoreCase(senha)){
 
-                    menu= false;
+                    //pegando nome e matricula do funcionario logado
+                    nomeFuncionarioLogado = lista.getFuncionarioVets().get(i).getNome();
+                    matriculaFuncionarioLogado= lista.getFuncionarioVets().get(i).getMatricula();
 
+                    menu = false;
 
                 }
             }

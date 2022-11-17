@@ -9,6 +9,9 @@ public class Livro {
     private  int anoDePublicacao;
     private String issn;
 
+    public Livro() {
+    }
+
     public Livro(int codigo, String autores, String titulo, String editora, char tipo, int anoDePublicacao, String issn) {
         this.codigo = codigo;
         this.autores = autores;

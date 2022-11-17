@@ -1,6 +1,6 @@
 package vetorclasses;
 
-import auxiliar.SalverCarregarCsv;
+import utilitarios.SalverCarregarCsv;
 import classes.Funcionario;
 
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ public class FuncionarioVet {
                 funcionario.getLogin()+";"+funcionario.getSenha()+"\n";
 
         this.novoFuncionario(funcionario);
-        SalverCarregarCsv.slavar(funcionarioSalvar, "funcionarios");
+        SalverCarregarCsv.salvar(funcionarioSalvar, "funcionarios");
 
 
     }
