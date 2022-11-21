@@ -27,25 +27,35 @@ public class LivroVet {
         System.out.println("Entre com Codigo: ");
         livro.setCodigo(entrada.nextInt());
         entrada.nextLine();
-        System.out.println("Entre com titulo do livro: ");
-        livro.setTitulo(entrada.nextLine());
         System.out.println("Entre com nome dos autore(s): ");
         livro.setAutores(entrada.nextLine());
+        System.out.println("Entre com titulo do livro: ");
+        livro.setTitulo(entrada.nextLine());
+        System.out.println("Entre com nome da editora do livro: ");
+        livro.setEditora(entrada.nextLine());
+        System.out.println("Entre com tipo (P:periodico), (L:Livros) ");
+        livro.setTipo(entrada.nextLine().toUpperCase().charAt(0));
         System.out.println("Entre com ano da publicação: ");
         livro.setAnoDePublicacao(entrada.nextInt());
         entrada.nextLine();
-        System.out.println("Entre com tipo (P:periodico), (L:Livros) ");
-        livro.setTipo(entrada.nextLine().toUpperCase().charAt(0));
         System.out.println("Entre com issn: ");
         livro.setIssn(entrada.nextLine());
 
 
-        String livroSalvar = livro.getCodigo()+";"+livro.getTitulo()+";"+
-                livro.getAutores()+";"+livro.getAnoDePublicacao()+";"+
-                livro.getTipo()+";"+ livro.getIssn()+"\n";
+        String livroSalvar = livro.getCodigo()+";"+livro.getAutores()+";"+
+                livro.getTitulo()+";"+livro.getEditora()+";"+livro.getTipo()+";"+
+                livro.getAnoDePublicacao()+";"+ livro.getIssn()+"\n";
 
         this.novoLivro(livro);
-        SalverCarregarCsv.salvar(livroSalvar, "livros");
+        boolean cadastraNovaLinha =true; //para cadastra um nova linha no .csv
+
+        //Veririficar se aruivo existe parar criar cabeçalho
+        if(!SalverCarregarCsv.verificarExistenciaDoArquivo("livros")) {
+            String cabecalho = "código;autor(es);título;editora;tipo;ano de publicação;issn \n";
+            SalverCarregarCsv.salvar(cabecalho, "livros",cadastraNovaLinha);
+        }
+        SalverCarregarCsv.salvar(livroSalvar, "livros",cadastraNovaLinha);
+
         if(livro.getTipo()=='P'){
             PeriodicoVet periodico =new PeriodicoVet();
             periodico.cadastra(livro);

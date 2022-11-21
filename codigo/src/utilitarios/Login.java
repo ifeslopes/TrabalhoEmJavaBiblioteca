@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
-public  class Login extends SalverCarregarCsv {
+public  class Login  {
     private static String nomeFuncionarioLogado;
 
     private static int matriculaFuncionarioLogado;
@@ -52,7 +52,7 @@ public  class Login extends SalverCarregarCsv {
         boolean menu =true;
 
         while (menu){
-            System.out.println("\n\n:: TELA DE LOGIN ::");
+            System.out.println("\n\n::TELA DE LOGIN ::");
             System.out.println("Entre com login:");
             String login = entrada.nextLine();
 
@@ -87,20 +87,20 @@ public  class Login extends SalverCarregarCsv {
 
         Funcionario funcionario =new Funcionario();
         FuncionarioVet funcionarioVet =new FuncionarioVet();
-        List<String> listas = carregarArquivo("funcionarios.csv");
+        List<String> listas = SalverCarregarCsv.carregarArquivo("funcionarios.csv");
 
-        for (String list:listas ) {
-            String[] funci = list.split(";");
-            funcionario.setMatricula(Integer.parseInt(funci[0]));
-            funcionario.setNome(funci[1]);
-            funcionario.setEndereco(funci[2]);
-            funcionario.setDataEngresso(funci[3]);
-            funcionario.setSetor(funci[4]);
-            funcionario.setLogin(funci[5]);
-            funcionario.setSenha(funci[6]);
-            funcionarioVet.novoFuncionario(funcionario);
+       //carregando funcionarios no vetor
+        for (int i=1; i< listas.size();i++ ) {
+            String[] funci = listas.get(i).split(";");
+
+            Funcionario funcionario1 =new Funcionario( Integer.parseInt(funci[0]),funci[1],
+                    funci[2],funci[3],funci[4],funci[5],funci[6]);
+            funcionarioVet.novoFuncionario(funcionario1);
+
+
 
         }
+
        return  funcionarioVet;
     }
 

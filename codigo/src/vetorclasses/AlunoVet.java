@@ -23,7 +23,7 @@ public class AlunoVet {
     }
 
     public void cadastra(){
-        Scanner entrada =new Scanner(System.in);
+
         for (int i = 0; i < 5; i++) {
 
         Aluno aluno =new Aluno(1234+i,"Endereço Aluno_"+i,

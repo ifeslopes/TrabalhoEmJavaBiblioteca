@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/codigo/src/utilitarios/Base_Dados/itenDeEmprestimos.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/codigo/src/utilitarios/Base_Dados/livros.csv">
           <value>
             <Attribute>

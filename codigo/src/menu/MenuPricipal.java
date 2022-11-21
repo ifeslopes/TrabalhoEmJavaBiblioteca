@@ -1,7 +1,7 @@
 package menu;
 
 import utilitarios.Login;
-import vetorclasses.EmpretimoVet;
+import vetorclasses.EmprestimoVet;
 import vetorclasses.LivroVet;
 
 import java.util.Scanner;
@@ -15,7 +15,7 @@ public class MenuPricipal {
 
         while (true) {
 
-            System.out.println("\n:: S I S T E M  B I B L I O T E C A ::\n");
+            System.out.println("\n:: S I S T E M  B I B L I O T E C A ::");
             System.out.println("\n:: Voce esta logado : "+ Login.getNomeFuncionarioLogado()+" ::");
             System.out.println("Bem-vindo(a) ao sistem. " + "Escolha a opção desejada");
             System.out.println("1 - Cadastro de Usuarios");
@@ -38,8 +38,8 @@ public class MenuPricipal {
                     break;
                     case 3:
                     // chama o menu de gerenciamento de livros
-                    EmpretimoVet empretimoVet = new EmpretimoVet();
-                    empretimoVet.emprestimo();
+                    EmprestimoVet emprestimoVet = new EmprestimoVet();
+                    emprestimoVet.emprestimo();
                     break;
                 case 4:
                     System.out.println("\n Sistema finalizado! \n");

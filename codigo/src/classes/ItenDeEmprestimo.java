@@ -1,15 +1,17 @@
 package classes;
 
-import java.util.Date;
 
 public class ItenDeEmprestimo {
     private int codigo;
     private int codigoEmprestimo;
     private int codigoLivro;
     private int codigoPeriodico;
-    private Date dataDevolucao;
+    private String dataDevolucao;
 
-    public ItenDeEmprestimo(int codigo, int codigoEmprestimo, int codigoLivro, int codigoPeriodico, Date dataDevolucao) {
+    public ItenDeEmprestimo() {
+    }
+
+    public ItenDeEmprestimo(int codigo, int codigoEmprestimo, int codigoLivro, int codigoPeriodico, String dataDevolucao) {
         this.codigo = codigo;
         this.codigoEmprestimo = codigoEmprestimo;
         this.codigoLivro = codigoLivro;
@@ -49,11 +51,11 @@ public class ItenDeEmprestimo {
         this.codigoPeriodico = codigoPeriodico;
     }
 
-    public Date getDataDevolucao() {
+    public String getDataDevolucao() {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(Date dataDevolucao) {
+    public void setDataDevolucao(String dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 

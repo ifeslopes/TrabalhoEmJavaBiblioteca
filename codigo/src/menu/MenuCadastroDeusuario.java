@@ -13,7 +13,7 @@ public class MenuCadastroDeusuario {
 
         while (opcao!=4) {
 
-            System.out.println("\n:: B I B L I O T E C A ::\n");
+            System.out.println(":: B I B L I O T E C A ::\n");
             System.out.println("Cadastro de usuarios");
             System.out.println("1 - Cadastro de Funcionario");
             System.out.println("2 - Cadastro de Professor");
@@ -26,15 +26,14 @@ public class MenuCadastroDeusuario {
 
             switch (opcao) {
                 case 1:
-                    // chama o menu de gerenciamento de livros
-                    //menuGerenciarLivros();
+
+
                    FuncionarioVet funcionarioVet= new FuncionarioVet();
                    funcionarioVet.cadastra();
 
                     break;
                 case 3:
-                    // chama o menu de gerenciamento de livros
-                    //menuGerenciarLivros();
+
                     AlunoVet alunoVet= new AlunoVet();
                     alunoVet.cadastra();
 

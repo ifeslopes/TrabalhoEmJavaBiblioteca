@@ -8,7 +8,7 @@ public  class SalverCarregarCsv {
     public SalverCarregarCsv() {
     }
 
-    public static void salvar(String salvar, String nome){
+    public static void salvar(String salvar, String nome,boolean novoAtualizar){
         File diretorio =new File("codigo/src/utilitarios/Base_Dados");
         //criar diretorio
         //diretorio.mkdir();
@@ -16,7 +16,7 @@ public  class SalverCarregarCsv {
 
         try{
             arquivo.createNewFile();
-            FileWriter arquivoEscrita = new FileWriter(arquivo,true);
+            FileWriter arquivoEscrita = new FileWriter(arquivo,novoAtualizar);
             PrintWriter escrever =new PrintWriter(arquivoEscrita);
 
             escrever.print(salvar);
@@ -51,5 +51,9 @@ public  class SalverCarregarCsv {
                 e.printStackTrace();
             }
           return resultado;
+        }
+        public static boolean verificarExistenciaDoArquivo(String arquivo){
+            File diretorio =new File("codigo/src/utilitarios/Base_Dados/"+arquivo+".csv");
+        return diretorio.exists();
         }
 }

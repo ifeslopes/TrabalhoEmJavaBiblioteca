@@ -1,27 +1,20 @@
 package vetorclasses;
 
 import classes.Aluno;
-import classes.Livro;
 import classes.Emprestimo;
 import utilitarios.BuscarClienteLivro;
 import utilitarios.CalculadoraDeData;
 import utilitarios.Login;
 import utilitarios.SalverCarregarCsv;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class EmpretimoVet {
+public class EmprestimoVet {
     private List<Emprestimo> emprestimoVets = new ArrayList<>();
 
-    public EmpretimoVet() {}
+    public EmprestimoVet() {}
 
     public  void novoEmprestimo(Emprestimo emprestimo){
         this.emprestimoVets.add(emprestimo);
@@ -39,7 +32,7 @@ public class EmpretimoVet {
         Emprestimo emprestimo =new Emprestimo();
 
         //buscando object fazendo cast para aluno
-        Aluno aluno = (Aluno) BuscarClienteLivro.bucaDeUsuario();
+        Aluno aluno = (Aluno) BuscarClienteLivro.buscarUsuario();
 
         if(BuscarClienteLivro.culsuntaMulta(aluno)) {
             System.out.println("Entre com codigodo emprestiomo: ");
@@ -54,6 +47,8 @@ public class EmpretimoVet {
             entrada.nextLine();
 
                 do {
+                    //validar:devolução deve ser maior que a data de empréstimo
+
                     System.out.println("Entre como data do emprestimo:\"dd/MM/yyyy\" ");
                      dataEmprestimo = entrada.nextLine();
                     System.out.println("Entre como data devolução: \"dd/MM/yyyy\" ");
@@ -73,7 +68,18 @@ public class EmpretimoVet {
                     + emprestimo.getDataEmprestimo() + ";" + emprestimo.getDataDevolucao() + "\n";
 
             this.novoEmprestimo(emprestimo);
-            SalverCarregarCsv.salvar(emprestimoSalvar, "emprestimos");
+
+            ItenEmprestimoVet itenEmprestimoVet =new ItenEmprestimoVet();
+            itenEmprestimoVet.itenDeEmprestimo(emprestimo);
+            boolean cadastraNovaLinha =true; //para cadastra um nova linha no .csv
+
+            if(this.getEmprestimoVets().size()==1) {
+                String cabecalho = "código;matrícula-cliente;matrícula-funcionário;<data-" +
+                        "empréstimo;data-devolução\n";
+                SalverCarregarCsv.salvar(cabecalho, "emprestimos",cadastraNovaLinha);
+            }
+
+            SalverCarregarCsv.salvar(emprestimoSalvar, "emprestimos",cadastraNovaLinha);
             System.out.println("Emprestimo Realizado Com Sucesso! ");
         }
 

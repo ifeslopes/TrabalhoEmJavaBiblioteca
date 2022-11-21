@@ -37,17 +37,25 @@ public class FuncionarioVet {
         funcionario.setDataEngresso(entrada.nextLine());
         System.out.println("Entre com setor: ");
         funcionario.setSetor(entrada.nextLine());
-        System.out.println("Entre com senha: ");
-        funcionario.setSenha(entrada.nextLine());
         System.out.println("Entre com login: ");
         funcionario.setLogin(entrada.nextLine());
+        System.out.println("Entre com senha: ");
+        funcionario.setSenha(entrada.nextLine());
 
         String funcionarioSalvar = funcionario.getMatricula()+";"+funcionario.getNome()+";"+
                 funcionario.getEndereco()+";"+funcionario.getDataEngresso()+";"+funcionario.getSetor()+";"+
-                funcionario.getLogin()+";"+funcionario.getSenha()+"\n";
+                funcionario.getSenha()+";"+funcionario.getLogin()+"\n";
 
         this.novoFuncionario(funcionario);
-        SalverCarregarCsv.salvar(funcionarioSalvar, "funcionarios");
+        boolean cadastraNovaLinha =true; //para cadastra um nova linha no .csv
+
+        //Veririficar se aruivo existe parar criar cabeçalho
+       if(!SalverCarregarCsv.verificarExistenciaDoArquivo("funcionarios")) {
+
+           String cabecalho = "matrícula;nome;endereço;data-ingresso; setor; login ;senha \n";
+           SalverCarregarCsv.salvar(cabecalho, "funcionarios", cadastraNovaLinha);
+       }
+        SalverCarregarCsv.salvar(funcionarioSalvar, "funcionarios",cadastraNovaLinha);
 
 
     }

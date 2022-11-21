@@ -38,12 +38,19 @@ public class PeriodicoVet {
         periodico.setFatorDeEmpactor(entrada.nextDouble());
 
 
-        String periodicoSalvar = periodico.getCodigo()+";"+periodico.getTitulo()+";"+
-                periodico.getAutores()+";"+ periodico.getTipo()+";"
+        String periodicoSalvar = periodico.getCodigo()+";"+periodico.getAutores()+";"+
+                periodico.getTitulo()+";"+ periodico.getTipo()+";"
                 + periodico.getFatorDeEmpactor()+";"+ periodico.getIssn()+"\n";
 
         this.novoPeriodico(periodico);
-        SalverCarregarCsv.salvar(periodicoSalvar, "periodicos");
+        boolean cadastraNovaLinha =true; //para cadastra um nova linha no .csv
+
+        //Veririficar se aruivo existe parar criar cabeçalho
+        if(!SalverCarregarCsv.verificarExistenciaDoArquivo("periodicos")) {
+            String cabecalho = "código;autor(es);título;tipo;fator-de-impacto;issn \n";
+            SalverCarregarCsv.salvar(cabecalho, "periodicos",cadastraNovaLinha);
+        }
+        SalverCarregarCsv.salvar(periodicoSalvar, "periodicos",cadastraNovaLinha);
         System.out.println("Cadastro Realizado Com Sucesso! ");
 
     }

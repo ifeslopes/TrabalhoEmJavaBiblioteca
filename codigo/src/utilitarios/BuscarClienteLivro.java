@@ -1,13 +1,15 @@
 package utilitarios;
 
 import classes.Aluno;
+import classes.Livro;
 import vetorclasses.AlunoVet;
+import vetorclasses.LivroVet;
 
 import java.util.Scanner;
 
 public class BuscarClienteLivro {
 
-    public static Object bucaDeUsuario(){
+    public static Object buscarUsuario(){
         Scanner entrada =new Scanner(System.in);
         AlunoVet alunoVet = new  AlunoVet();
         alunoVet.cadastra();
@@ -47,6 +49,43 @@ public class BuscarClienteLivro {
             }
             return true;
         }
+
+
+
+    public static Livro buscarLivro(){
+        Scanner entrada =new Scanner(System.in);
+        LivroVet livroVet = CarregarCsvVetor.carregarCsvLivro();
+
+        Livro livro=null;
+
+        while (livro==null){
+
+            System.out.println("Entre com codigo do livro:");
+            int buscar = entrada.nextInt();
+            for (int i = 0; i < livroVet.getLivroVets().size(); i++) {
+
+
+                if(livroVet.getLivroVets().get(i).getCodigo()==buscar){
+
+                    livro= livroVet.getLivroVets().get(i);
+                }
+
+            }
+            if( livro==null){
+                System.out.println("Livro não encotrado: ");
+                System.out.println("Lista de usuarios");
+
+                for (int i = 0; i < livroVet.getLivroVets().size(); i++) {
+                    System.out.println("Titulo: "+ livroVet.getLivroVets().get(i).getTitulo()+
+                            "Codigo: "+livroVet.getLivroVets().get(i).getCodigo());
+                }
+            }
+
+        }
+
+
+        return livro;
+    }
 
 
     }
