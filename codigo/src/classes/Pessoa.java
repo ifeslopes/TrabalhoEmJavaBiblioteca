@@ -6,13 +6,13 @@ public class Pessoa {
     private int matricula;
     private String nome;
     private String endereco;
-    private String dataEngresso;
+    private String dataIngresso;
     public Pessoa(){}
-    public Pessoa(int matricula, String nome, String endereco, String dataEngresso) {
+    public Pessoa(int matricula, String nome, String endereco, String dataIngresso) {
         this.matricula = matricula;
         this.nome = nome;
         this.endereco = endereco;
-        this.dataEngresso = dataEngresso;
+        this.dataIngresso = dataIngresso;
     }
 
     public int getMatricula() {
@@ -39,12 +39,12 @@ public class Pessoa {
         this.endereco = endereco;
     }
 
-    public String getDataEngresso() {
-        return dataEngresso;
+    public String getDataIngresso() {
+        return dataIngresso;
     }
 
-    public void setDataEngresso(String dataEngresso) {
-        this.dataEngresso = dataEngresso;
+    public void setDataIngresso(String dataIngresso) {
+        this.dataIngresso = dataIngresso;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class Pessoa {
                 "matricula=" + matricula +
                 ", nome='" + nome + '\'' +
                 ", endereco='" + endereco + '\'' +
-                ", dataEngresso=" + dataEngresso +
+                ", dataIngresso=" + dataIngresso +
                 '}';
     }
 }

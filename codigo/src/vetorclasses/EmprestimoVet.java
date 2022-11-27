@@ -28,23 +28,25 @@ public class EmprestimoVet {
         Scanner entrada =new Scanner(System.in);
 
 
-        System.out.println("\n\n Emprestimo de Itens::\n ");
+        System.out.println("::N O V O -  E M P R E S T I M O::");
         Emprestimo emprestimo =new Emprestimo();
 
         //buscando object fazendo cast para aluno
-        Aluno aluno = (Aluno) BuscarClienteLivro.buscarUsuario();
+        Aluno aluno =  BuscarClienteLivro.buscarUsuario();
 
         if(BuscarClienteLivro.culsuntaMulta(aluno)) {
-            System.out.println("Entre com codigodo emprestiomo: ");
+            System.out.println("Entre com codigo do emprestiomo: ");
             emprestimo.setCodigo(entrada.nextInt());
 
             emprestimo.setMatriculaCliente(aluno.getMatricula());
             emprestimo.setMatriculaFuncionario(Login.getMatriculaFuncionarioLogado());
             String dataEmprestimo;
-            String dataDevolucao;
-            Integer validarData=0;
+
+            //String dataDevolucao;
+            //Integer validarData=0;
 
             entrada.nextLine();
+            /* metodo para funcionario cadastra a data da devolução manualmente
 
                 do {
                     //validar:devolução deve ser maior que a data de empréstimo
@@ -59,8 +61,12 @@ public class EmprestimoVet {
                         System.out.println("\n ATENÇÂO! A data de devolução deve ser maior que a data de empréstimo ");
                     }
                 }while (validarData < 0);
+
+             */
+            System.out.println("Entre como data do emprestimo:\"dd/MM/yyyy\" ");
+            dataEmprestimo = entrada.nextLine();
                 emprestimo.setDataEmprestimo(dataEmprestimo);
-                emprestimo.setDataDevolucao(dataDevolucao);
+                emprestimo.setDataDevolucao(CalculadoraDeData.gerarDiasDaDevolucao(dataEmprestimo));
 
 
             String emprestimoSalvar = emprestimo.getCodigo() + ";" +
@@ -69,13 +75,15 @@ public class EmprestimoVet {
 
             this.novoEmprestimo(emprestimo);
 
+
             ItenEmprestimoVet itenEmprestimoVet =new ItenEmprestimoVet();
             itenEmprestimoVet.itenDeEmprestimo(emprestimo);
-            boolean cadastraNovaLinha =true; //para cadastra um nova linha no .csv
 
-            if(this.getEmprestimoVets().size()==1) {
-                String cabecalho = "código;matrícula-cliente;matrícula-funcionário;<data-" +
-                        "empréstimo;data-devolução\n";
+            /* true= nova linha no arquivo csv e false = atualizar todo o arquivo csv*/
+            boolean cadastraNovaLinha =true;
+
+            if(!SalverCarregarCsv.verificarExistenciaDoArquivo("emprestimos")) {
+                String cabecalho = "código;matrícula-cliente;matrícula-funcionário;data-empréstimo;data-devolução\n";
                 SalverCarregarCsv.salvar(cabecalho, "emprestimos",cadastraNovaLinha);
             }
 

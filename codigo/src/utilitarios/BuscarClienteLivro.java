@@ -9,28 +9,26 @@ import java.util.Scanner;
 
 public class BuscarClienteLivro {
 
-    public static Object buscarUsuario(){
+    public static Aluno buscarUsuario(){
         Scanner entrada =new Scanner(System.in);
-        AlunoVet alunoVet = new  AlunoVet();
-        alunoVet.cadastra();
+        AlunoVet alunoVet = CarregarCsvVetor.carregarCsvAluno();
+
         Aluno aluno=null;
 
         while (aluno==null){
-            System.out.println("Entre com matricula do usuario:");
+            System.out.println("Entre com matricula do aluno ou  entre com 0 parar listar de alunos: ");
             int buscar = entrada.nextInt();
-            for (int i = 0; i < alunoVet.getAlunoVets().size(); i++) {
 
-            if(alunoVet.getAlunoVets().get(i).getMatricula()==buscar){
 
-                aluno= alunoVet.getAlunoVets().get(i);
-            }
+                aluno= CarregarCsvVetor.buscarAlunoPorMatricula(buscar);
 
-            }
+
+
             if( aluno==null){
                 System.out.println("Usuario não encotrado: ");
                 System.out.println("Lista de usuarios");
 
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < alunoVet.getAlunoVets().size(); i++) {
                     System.out.println("Nome: "+ alunoVet.getAlunoVets().get(i).getNome()+
                             "Matricula: "+alunoVet.getAlunoVets().get(i).getMatricula());
                 }
@@ -60,17 +58,11 @@ public class BuscarClienteLivro {
 
         while (livro==null){
 
-            System.out.println("Entre com codigo do livro:");
+            System.out.println("Entre com codigo do livro ou entre 0 para listas livros cadastrados: ");
             int buscar = entrada.nextInt();
-            for (int i = 0; i < livroVet.getLivroVets().size(); i++) {
 
+            livro= CarregarCsvVetor.buscarLivroPorCodigo(buscar);
 
-                if(livroVet.getLivroVets().get(i).getCodigo()==buscar){
-
-                    livro= livroVet.getLivroVets().get(i);
-                }
-
-            }
             if( livro==null){
                 System.out.println("Livro não encotrado: ");
                 System.out.println("Lista de usuarios");
@@ -86,6 +78,8 @@ public class BuscarClienteLivro {
 
         return livro;
     }
+
+
 
 
     }

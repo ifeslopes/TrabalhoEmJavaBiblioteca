@@ -26,6 +26,7 @@ public class FuncionarioVet {
         Scanner entrada =new Scanner(System.in);
         Funcionario funcionario =new Funcionario();
 
+        System.out.println("::N O V O -  F U N C I O N A R I O::");
         System.out.println("Entre com matricula: ");
         funcionario.setMatricula(entrada.nextInt());
         entrada.nextLine();
@@ -34,20 +35,22 @@ public class FuncionarioVet {
         System.out.println("Entre com endereço: ");
         funcionario.setEndereco(entrada.nextLine());
         System.out.println("Entre com data do ingresso: ");
-        funcionario.setDataEngresso(entrada.nextLine());
+        funcionario.setDataIngresso(entrada.nextLine());
         System.out.println("Entre com setor: ");
         funcionario.setSetor(entrada.nextLine());
-        System.out.println("Entre com login: ");
+        System.out.println("Cadastre seu login: ");
         funcionario.setLogin(entrada.nextLine());
-        System.out.println("Entre com senha: ");
+        System.out.println("Casatre com senha: ");
         funcionario.setSenha(entrada.nextLine());
 
         String funcionarioSalvar = funcionario.getMatricula()+";"+funcionario.getNome()+";"+
-                funcionario.getEndereco()+";"+funcionario.getDataEngresso()+";"+funcionario.getSetor()+";"+
+                funcionario.getEndereco()+";"+funcionario.getDataIngresso()+";"+funcionario.getSetor()+";"+
                 funcionario.getSenha()+";"+funcionario.getLogin()+"\n";
 
-        this.novoFuncionario(funcionario);
-        boolean cadastraNovaLinha =true; //para cadastra um nova linha no .csv
+        novoFuncionario(funcionario);
+
+        /* true= nova linha no arquivo csv e false = atualizar todo o arquivo csv*/
+        boolean cadastraNovaLinha =true;
 
         //Veririficar se aruivo existe parar criar cabeçalho
        if(!SalverCarregarCsv.verificarExistenciaDoArquivo("funcionarios")) {

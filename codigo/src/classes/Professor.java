@@ -3,10 +3,13 @@ package classes;
 import java.util.Date;
 
 public class Professor extends Pessoa {
+
     private String setor;
 
-    public Professor(int matricula, String nome, String endereco, String dataEngresso, String setor) {
-        super(matricula, nome, endereco, dataEngresso);
+    public Professor() {}
+    
+    public Professor(int matricula, String nome, String endereco, String dataIngresso, String setor) {
+        super(matricula, nome, endereco, dataIngresso);
         this.setor = setor;
     }
 
@@ -20,8 +23,8 @@ public class Professor extends Pessoa {
 
     @Override
     public String toString() {
-        return "Professor{" +
-                "setor='" + setor + '\'' +
-                "} " + super.toString();
+        return "Professor{"
+                + "setor='" + setor + '\''
+                + "} " + super.toString();
     }
 }

@@ -23,11 +23,11 @@ public class LivroVet {
     public void cadastra(){
         Scanner entrada =new Scanner(System.in);
         Livro livro =new Livro();
-
+        System.out.println("::N O V O -  L I V R O::");
         System.out.println("Entre com Codigo: ");
         livro.setCodigo(entrada.nextInt());
         entrada.nextLine();
-        System.out.println("Entre com nome dos autore(s): ");
+        System.out.println("Entre com nome dos autore(s),(se houver mais de um, separados por vírgula): ");
         livro.setAutores(entrada.nextLine());
         System.out.println("Entre com titulo do livro: ");
         livro.setTitulo(entrada.nextLine());
@@ -46,8 +46,10 @@ public class LivroVet {
                 livro.getTitulo()+";"+livro.getEditora()+";"+livro.getTipo()+";"+
                 livro.getAnoDePublicacao()+";"+ livro.getIssn()+"\n";
 
-        this.novoLivro(livro);
-        boolean cadastraNovaLinha =true; //para cadastra um nova linha no .csv
+        novoLivro(livro);
+
+        /* true= nova linha no arquivo csv e false = atualizar todo o aruuivo csv*/
+        boolean cadastraNovaLinha =true;
 
         //Veririficar se aruivo existe parar criar cabeçalho
         if(!SalverCarregarCsv.verificarExistenciaDoArquivo("livros")) {
@@ -65,4 +67,6 @@ public class LivroVet {
 
 
     }
+
+
 }

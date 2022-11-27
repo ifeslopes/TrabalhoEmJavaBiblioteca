@@ -5,10 +5,10 @@ import java.util.Date;
 public class Aluno  extends Pessoa{
     private String curso;
 
-    private double multa;
-
-    public Aluno(int matricula, String nome, String endereco, String dataEngresso, String curso, double multa) {
-        super(matricula, nome, endereco, dataEngresso);
+    private Double multa;
+    public Aluno() {}
+    public Aluno(int matricula, String nome, String endereco, String dataIngresso, String curso, Double multa) {
+        super(matricula, nome, endereco, dataIngresso);
         this.curso = curso;
         this.multa = multa;
     }
@@ -21,11 +21,11 @@ public class Aluno  extends Pessoa{
         this.curso = curso;
     }
 
-    public double getMulta() {
+    public Double getMulta() {
         return multa;
     }
 
-    public void setMulta(double multa) {
+    public void setMulta(Double multa) {
         this.multa = multa;
     }
 

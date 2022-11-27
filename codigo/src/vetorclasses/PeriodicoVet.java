@@ -34,7 +34,7 @@ public class PeriodicoVet {
         System.out.println("\n\n Cadastro de Periódicos::\n ");
         System.out.println("Entre com tipo (P:periodico), (R:revistas), (C:conferencias) ");
         periodico.setTipo(entrada.nextLine().toLowerCase().charAt(0));
-        System.out.println("Entre com fator de impacto: ");
+        System.out.println("Entre com numero para fator de impacto: ");
         periodico.setFatorDeEmpactor(entrada.nextDouble());
 
 
@@ -42,8 +42,10 @@ public class PeriodicoVet {
                 periodico.getTitulo()+";"+ periodico.getTipo()+";"
                 + periodico.getFatorDeEmpactor()+";"+ periodico.getIssn()+"\n";
 
-        this.novoPeriodico(periodico);
-        boolean cadastraNovaLinha =true; //para cadastra um nova linha no .csv
+        novoPeriodico(periodico);
+
+        /* true= nova linha no arquivo csv e false = atualizar todo o aruuivo csv*/
+        boolean cadastraNovaLinha =true;
 
         //Veririficar se aruivo existe parar criar cabeçalho
         if(!SalverCarregarCsv.verificarExistenciaDoArquivo("periodicos")) {

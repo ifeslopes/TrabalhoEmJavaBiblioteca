@@ -10,8 +10,8 @@ public class Funcionario extends Pessoa{
     public Funcionario(){
         super();
     }
-    public Funcionario(int matricula, String nome, String endereco, String dataEngresso, String setor, String senha, String login) {
-        super(matricula, nome, endereco, dataEngresso);
+    public Funcionario(int matricula, String nome, String endereco, String dataIngresso, String setor, String senha, String login) {
+        super(matricula, nome, endereco, dataIngresso);
         this.setor = setor;
         this.login = login;
         this.senha = senha;

@@ -47,13 +47,15 @@ public class ItenEmprestimoVet {
                     itenDeEmprestimo.getCodigoEmprestimo() + ";" + itenDeEmprestimo.getCodigoLivro() + ";"
                     + itenDeEmprestimo.getCodigoLivro() + ";" + itenDeEmprestimo.getDataDevolucao() + "\n";
 
-            this.novoItenDeEmprestimo(itenDeEmprestimo);
-        boolean cadastraNovaLinha =true; //para cadastra um nova linha no .csv
+            novoItenDeEmprestimo(itenDeEmprestimo);
+
+        /* true= nova linha no arquivo csv e false = atualizar todo o arquivo csv*/
+        boolean cadastraNovaLinha =true;
 
         //Veririficar se aruivo existe parar criar cabeçalho
         if(!SalverCarregarCsv.verificarExistenciaDoArquivo("itenDeEmprestimos")) {
-            String cabecalho = "código-item;código-empréstimo;código-livro;código-" +
-                    "periódico>;<data-devolução \n";
+
+            String cabecalho = "código-item;código-empréstimo;código-livro;código-periódico;data-devolução \n";
             SalverCarregarCsv.salvar(cabecalho, "itenDeEmprestimos", cadastraNovaLinha);
         }
             SalverCarregarCsv.salvar(itenDeEmprestimoSalvar, "itenDeEmprestimos",cadastraNovaLinha);

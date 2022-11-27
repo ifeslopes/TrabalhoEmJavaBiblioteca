@@ -31,13 +31,17 @@ public  class Login  {
 
             if (diretorio.exists()) {
 
-
-
                 return telaLogin();
             } else {
                 //criar diretorio
                 diretorio.mkdir();
-                System.out.println("CADASTR FUNCIONARIO INICIAL NO SISTEMA!");
+
+                System.out.println("\n\n    A T E N Ç Ã O !");
+                System.out.println("Os aruivios .csv de entrada e relatórios estão salvos nos diretórios ");
+                System.out.println("codigo/src/utilitarios/Base_Dados/");
+                System.out.println("codigo/src/utilitarios/Relatorio/ \n\n");
+                System.out.println("CADASTRO INICIAL DE FUNCIONARIO PARA USO DO SISTEMA!");
+
                 FuncionarioVet funcionarioVet =new FuncionarioVet();
                 funcionarioVet.cadastra();
 
@@ -47,16 +51,16 @@ public  class Login  {
     }
 
     public static boolean telaLogin(){
-        FuncionarioVet lista= carregarCsvFuncionario();
+        FuncionarioVet lista= CarregarCsvVetor.carregarCsvFuncionario();
         Scanner entrada =new Scanner(System.in);
         boolean menu =true;
 
         while (menu){
-            System.out.println("\n\n::TELA DE LOGIN ::");
-            System.out.println("Entre com login:");
+            System.out.println("\n::T E L A  D E  L O G I N ::");
+            System.out.println(">>> LOGIN <<<");
             String login = entrada.nextLine();
 
-            System.out.println("Entre com senha:");
+            System.out.println(">>> SENHA <<<");
             String senha = entrada.nextLine();
 
             for (int i = 0; i < lista.getFuncionarioVets().size() ; i++) {
@@ -74,7 +78,7 @@ public  class Login  {
                 }
             }
             if(menu) {
-                System.out.println("\n \n Login ou senha Invalido: \n\n");
+                System.out.println("\n  Login ou Senha Invalido: \n");
             }
 
 
@@ -82,26 +86,6 @@ public  class Login  {
         return true;
     }
 
-    public static FuncionarioVet carregarCsvFuncionario(){
-        //metodo carregar funcionario
 
-        Funcionario funcionario =new Funcionario();
-        FuncionarioVet funcionarioVet =new FuncionarioVet();
-        List<String> listas = SalverCarregarCsv.carregarArquivo("funcionarios.csv");
-
-       //carregando funcionarios no vetor
-        for (int i=1; i< listas.size();i++ ) {
-            String[] funci = listas.get(i).split(";");
-
-            Funcionario funcionario1 =new Funcionario( Integer.parseInt(funci[0]),funci[1],
-                    funci[2],funci[3],funci[4],funci[5],funci[6]);
-            funcionarioVet.novoFuncionario(funcionario1);
-
-
-
-        }
-
-       return  funcionarioVet;
-    }
 
 }

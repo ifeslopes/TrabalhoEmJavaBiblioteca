@@ -23,7 +23,9 @@ public  class SalverCarregarCsv {
             escrever.flush();
             escrever.close();
         }catch (IOException e){
-            e.printStackTrace();
+
+            System.out.println("Erro de I/O: "+e.getMessage());
+            System.exit(0);
         }
 
     }
@@ -48,7 +50,9 @@ public  class SalverCarregarCsv {
             lerArquivo.close();
 
             }catch (IOException e){
-                e.printStackTrace();
+                System.out.println("Erro de I/O ");
+                System.out.println(e.getMessage());
+                System.exit(0);
             }
           return resultado;
         }
@@ -56,4 +60,28 @@ public  class SalverCarregarCsv {
             File diretorio =new File("codigo/src/utilitarios/Base_Dados/"+arquivo+".csv");
         return diretorio.exists();
         }
+
+    public static void salvarRelatorio(String salvar, String nome,boolean novoAtualizar){
+        File diretorio =new File("codigo/src/utilitarios/Relatorio");
+        //criar diretorio
+        if (!diretorio.exists()) {
+            diretorio.mkdir();
+        }
+        File arquivo = new File(diretorio,nome+".csv");
+
+        try{
+            arquivo.createNewFile();
+            FileWriter arquivoEscrita = new FileWriter(arquivo,novoAtualizar);
+            PrintWriter escrever =new PrintWriter(arquivoEscrita);
+
+            escrever.print(salvar);
+            escrever.flush();
+            escrever.close();
+        }catch (IOException e){
+
+            System.out.println("Erro de I/O: "+e.getMessage());
+            System.exit(0);
+        }
+
+    }
 }

@@ -9,12 +9,13 @@ import java.util.Scanner;
 
 public class AlunoVet {
 
-
+    Scanner entrada = new Scanner(System.in);
     private List<Aluno> alunoVets = new ArrayList<>();
 
-    public AlunoVet() {}
+    public AlunoVet() {
+    }
 
-    public  void novoAluno(Aluno aluno){
+    public void novoAluno(Aluno aluno) {
         this.alunoVets.add(aluno);
     }
 
@@ -22,17 +23,43 @@ public class AlunoVet {
         return alunoVets;
     }
 
-    public void cadastra(){
+    public void cadastra() {
+        Scanner entrada = new Scanner(System.in);
+        Aluno aluno = new Aluno();
+        System.out.println("::N O V O - A L U N O::");
+        System.out.println("Entre com matricula: ");
+        aluno.setMatricula(entrada.nextInt());
+        entrada.nextLine();
+        System.out.println("Entre com nome: ");
+        aluno.setNome(entrada.nextLine());
+        System.out.println("Entre com endereço: ");
+        aluno.setEndereco(entrada.nextLine());
+        System.out.println("Entre com data do ingresso: ");
+        aluno.setDataIngresso(entrada.nextLine());
+        System.out.println("Entre com curso: ");
+        aluno.setCurso(entrada.nextLine());
+        aluno.setMulta(0.0);
 
-        for (int i = 0; i < 5; i++) {
 
-        Aluno aluno =new Aluno(1234+i,"Endereço Aluno_"+i,
-                "Endereço Aluno_"+i,"12/02/2022","letras_"+i,0);
-        this.novoAluno(aluno);
+        String alunoSalvar = aluno.getMatricula() + ";" + aluno.getNome() + ";"
+                + aluno.getEndereco() + ";" + aluno.getCurso() + ";" + aluno.getDataIngresso() +";"+
+                 aluno.getMulta() + "\n";
+
+        novoAluno(aluno);
+
+        /* true= nova linha no arquivo csv e false = atualizar todo o arquivo csv*/
+        boolean cadastraNovaLinha =true;
+
+        //Veririficar se aruivo existe parar criar cabeçalho
+        if(!SalverCarregarCsv.verificarExistenciaDoArquivo("alunos")) {
+
+            String cabecalho = "matrícula;nome;endereço;curso;data-ingresso;multa  \n";
+            SalverCarregarCsv.salvar(cabecalho, "alunos", cadastraNovaLinha);
         }
-        alunoVets.forEach(System.out::println);
+
+
+        SalverCarregarCsv.salvar(alunoSalvar, "alunos",cadastraNovaLinha);
 
     }
-
 
 }
