@@ -4,6 +4,9 @@ import classes.Funcionario;
 import vetorclasses.FuncionarioVet;
 
 import java.io.File;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -67,7 +70,7 @@ public  class Login  {
 
 
                 if(lista.getFuncionarioVets().get(i).getLogin().equalsIgnoreCase(login)
-                        && lista.getFuncionarioVets().get(i).getSenha().equalsIgnoreCase(senha)){
+                        && lista.getFuncionarioVets().get(i).getSenha().equalsIgnoreCase(encriptar(senha))){
 
                     //pegando nome e matricula do funcionario logado
                     nomeFuncionarioLogado = lista.getFuncionarioVets().get(i).getNome();
@@ -84,6 +87,18 @@ public  class Login  {
 
         }
         return true;
+    }
+    public static String encriptar(String senha)  {
+        String s2="";
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));
+            s2 = hash.toString(16);
+        }catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+
+        return s2;
     }
 
 

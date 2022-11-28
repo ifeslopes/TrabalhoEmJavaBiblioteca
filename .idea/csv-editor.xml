@@ -3,21 +3,7 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="/codigo/src/utilitarios/Base_Dados/alunos.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="/codigo/src/utilitarios/Base_Dados/dadosDaDevolucao.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/codigo/src/utilitarios/Base_Dados/emprestimos.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
@@ -31,70 +17,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/codigo/src/utilitarios/Base_Dados/itenDeEmprestimos.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/codigo/src/utilitarios/Base_Dados/livros.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/codigo/src/utilitarios/Base_Dados/periodicos.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/codigo/src/utilitarios/Base_Dados/professores.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/codigo/src/utilitarios/Relatorio/relatorioAluno.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="/codigo/src/utilitarios/Relatorio/relatorioEmprestomo.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/codigo/src/utilitarios/Relatorio/relatorioFuncionario.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/codigo/src/utilitarios/Relatorio/relatorioLivros.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/codigo/src/utilitarios/Relatorio/relatorioemprestomo.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/codigo/src/utilitarios/Relatorio/relatorioslivros.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />

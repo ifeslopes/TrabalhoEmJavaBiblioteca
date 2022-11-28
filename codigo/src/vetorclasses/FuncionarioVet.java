@@ -1,5 +1,6 @@
 package vetorclasses;
 
+import utilitarios.Login;
 import utilitarios.SalverCarregarCsv;
 import classes.Funcionario;
 
@@ -41,7 +42,7 @@ public class FuncionarioVet {
         System.out.println("Cadastre seu login: ");
         funcionario.setLogin(entrada.nextLine());
         System.out.println("Casatre com senha: ");
-        funcionario.setSenha(entrada.nextLine());
+        funcionario.setSenha(Login.encriptar(entrada.nextLine()));
 
         String funcionarioSalvar = funcionario.getMatricula()+";"+funcionario.getNome()+";"+
                 funcionario.getEndereco()+";"+funcionario.getDataIngresso()+";"+funcionario.getSetor()+";"+
@@ -55,7 +56,7 @@ public class FuncionarioVet {
         //Veririficar se aruivo existe parar criar cabeçalho
        if(!SalverCarregarCsv.verificarExistenciaDoArquivo("funcionarios")) {
 
-           String cabecalho = "matrícula;nome;endereço;data-ingresso; setor; login ;senha \n";
+           String cabecalho = "matrícula;nome;endereço;data-ingresso; setor; senha ;login \n";
            SalverCarregarCsv.salvar(cabecalho, "funcionarios", cadastraNovaLinha);
        }
         SalverCarregarCsv.salvar(funcionarioSalvar, "funcionarios",cadastraNovaLinha);

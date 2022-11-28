@@ -15,19 +15,19 @@ public class CarregarCsvVetor {
     public static FuncionarioVet carregarCsvFuncionario(){
         //metodo carregar funcionario
 
-        Funcionario funcionario =new Funcionario();
+
         FuncionarioVet funcionarioVet =new FuncionarioVet();
         List<String> listas = SalverCarregarCsv.carregarArquivo("funcionarios.csv");
 
         try {
 
-        //carregando funcionarios no vetor
+
         for (int i=1; i< listas.size();i++ ) {
             String[] funci = listas.get(i).split(";");
 
-            Funcionario funcionario1 =new Funcionario( Integer.parseInt(funci[0]),funci[1],
+            Funcionario funcionario =new Funcionario( Integer.parseInt(funci[0]),funci[1],
                     funci[2],funci[3],funci[4],funci[5],funci[6]);
-            funcionarioVet.novoFuncionario(funcionario1);
+            funcionarioVet.novoFuncionario(funcionario);
         }
         }catch (RuntimeException e){
             System.out.println("Erro de formatação: "+e.getMessage());
@@ -36,15 +36,14 @@ public class CarregarCsvVetor {
 
         return  funcionarioVet;
     } public static AlunoVet carregarCsvAluno(){
-        //metodo carregar funcionario
+        //carregando alunos no vetor
 
-        Aluno aluno =new Aluno();
+
         AlunoVet alunoVet =new AlunoVet();
         List<String> listas = SalverCarregarCsv.carregarArquivo("alunos.csv");
 
         try {
 
-        //carregando alunos no vetor
         for (int i=1; i< listas.size();i++ ) {
             String[] funci = listas.get(i).split(";");
 
@@ -139,8 +138,7 @@ public class CarregarCsvVetor {
                 if (matricul == funcionarioVet.getFuncionarioVets().get(i).getMatricula()) {
                     funcionario = funcionarioVet.getFuncionarioVets().get(i);
 
-                    //relatririoEmprestimo+=funcionarioVet.getFuncionarioVets().get(j).getMatricula()+
-                    //      ";"+funcionarioVet.getFuncionarioVets().get(j).getNome()+";";
+
                 }
 
             }
@@ -156,8 +154,7 @@ public class CarregarCsvVetor {
                 if (matricula == alunoVet.getAlunoVets().get(i).getMatricula()) {
 
                     aluno = alunoVet.getAlunoVets().get(i);
-                    // relatririoEmprestimo+=alunoVet.getAlunoVets().get(k).getMatricula()+
-                    ///       ";"+alunoVet.getAlunoVets().get(k).getNome()+";";;
+
                 }
             }
             return aluno;
@@ -171,8 +168,7 @@ public class CarregarCsvVetor {
 
                     if (codigo == livroVet.getLivroVets().get(i).getCodigo()){
                         livro = livroVet.getLivroVets().get(i);
-                       // relatririoEmprestimo+=livroVet.getLivroVets().get(c).getCodigo()+
-                         //       ";"+livroVet.getLivroVets().get(b).getTitulo()+";";
+
                     }
                 }
 

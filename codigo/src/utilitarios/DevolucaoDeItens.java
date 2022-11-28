@@ -113,7 +113,7 @@ public class DevolucaoDeItens {
             SalverCarregarCsv.salvar(salvaEmprestimo, "emprestimos",atualizarCsv);
             SalverCarregarCsv.salvar(salvaItemEmprestimo, "itenDeEmprestimos",atualizarCsv);
             SalverCarregarCsv.salvar(salvaDadosDaDevolucao, "dadosDaDevolucao",cadastraNovaLinha);
-        System.out.println("\n\nDevolução realizada com sucesso!");
+        System.out.println("\nDevolução realizada com sucesso!");
 
     }
 

@@ -30,7 +30,7 @@ public class BuscarClienteLivro {
 
                 for (int i = 0; i < alunoVet.getAlunoVets().size(); i++) {
                     System.out.println("Nome: "+ alunoVet.getAlunoVets().get(i).getNome()+
-                            "Matricula: "+alunoVet.getAlunoVets().get(i).getMatricula());
+                            " Matricula: "+alunoVet.getAlunoVets().get(i).getMatricula());
                 }
             }
 
@@ -41,7 +41,8 @@ public class BuscarClienteLivro {
         }
         public static boolean culsuntaMulta(Aluno aluno){
             if(aluno.getMulta()!=0){
-                System.out.println("\n Foi detectado que o usuario  as com saldo pendente de R$: "+aluno.getMulta());
+                System.out.println("\n Usuário impossibilitado de fazer novos emprestimos\n  " +
+                        "Foi detectado um saldo pendente por atraso de R$: "+aluno.getMulta());
                 return false;
 
             }
@@ -69,7 +70,7 @@ public class BuscarClienteLivro {
 
                 for (int i = 0; i < livroVet.getLivroVets().size(); i++) {
                     System.out.println("Titulo: "+ livroVet.getLivroVets().get(i).getTitulo()+
-                            "Codigo: "+livroVet.getLivroVets().get(i).getCodigo());
+                            " Codigo: "+livroVet.getLivroVets().get(i).getCodigo());
                 }
             }
 

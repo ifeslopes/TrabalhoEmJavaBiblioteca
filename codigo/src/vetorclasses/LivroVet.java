@@ -38,7 +38,7 @@ public class LivroVet {
         System.out.println("Entre com ano da publicação: ");
         livro.setAnoDePublicacao(entrada.nextInt());
         entrada.nextLine();
-        System.out.println("Entre com issn: ");
+        System.out.println("Entre com numero issn: ");
         livro.setIssn(entrada.nextLine());
 
 
