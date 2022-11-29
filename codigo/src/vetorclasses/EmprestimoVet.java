@@ -66,7 +66,7 @@ public class EmprestimoVet {
             System.out.println("Entre como data do emprestimo:\"dd/MM/yyyy\" ");
             dataEmprestimo = entrada.nextLine();
                 emprestimo.setDataEmprestimo(dataEmprestimo);
-                emprestimo.setDataDevolucao(CalculadoraDeData.gerarDiasDaDevolucao(dataEmprestimo));
+
 
 
             String emprestimoSalvar = emprestimo.getCodigo() + ";" +

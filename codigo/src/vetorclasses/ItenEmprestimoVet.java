@@ -24,33 +24,37 @@ public class ItenEmprestimoVet {
     }
 
     public void itenDeEmprestimo(Emprestimo emprestimo) {
-        Scanner entrada =new Scanner(System.in);
-
-
-        System.out.println("\n\n ItenDeEmprestimo de Itens::\n ");
-        ItenDeEmprestimo itenDeEmprestimo =new ItenDeEmprestimo();
-
-
-        Livro livro =  BuscarClienteLivro.buscarLivro();
-
-
-            System.out.println("Entre com codigodo emprestiomo do item: ");
-            itenDeEmprestimo.setCodigo(entrada.nextInt());
-            itenDeEmprestimo.setCodigoEmprestimo(emprestimo.getCodigo());
-            itenDeEmprestimo.setCodigoLivro(livro.getCodigo());
-            itenDeEmprestimo.setCodigoPeriodico(livro.getCodigo());
-            itenDeEmprestimo.setDataDevolucao(emprestimo.getDataDevolucao());
-
-
-
-            String itenDeEmprestimoSalvar = itenDeEmprestimo.getCodigo() + ";" +
-                    itenDeEmprestimo.getCodigoEmprestimo() + ";" + itenDeEmprestimo.getCodigoLivro() + ";"
-                    + itenDeEmprestimo.getCodigoLivro() + ";" + itenDeEmprestimo.getDataDevolucao() + "\n";
-
-            novoItenDeEmprestimo(itenDeEmprestimo);
+        Scanner entrada = new Scanner(System.in);
+        boolean menuitem = true;
+        String itenDeEmprestimoSalvar="";
 
         /* true= nova linha no arquivo csv e false = atualizar todo o arquivo csv*/
         boolean cadastraNovaLinha =true;
+
+        System.out.println("\n\n ItenDeEmprestimo de Itens::\n ");
+        ItenDeEmprestimo itenDeEmprestimo = new ItenDeEmprestimo();
+
+
+        while (menuitem){
+            Livro livro = BuscarClienteLivro.buscarLivro();
+
+
+        System.out.println("Entre com codigodo emprestiomo do item: ");
+        itenDeEmprestimo.setCodigo(entrada.nextInt());
+        itenDeEmprestimo.setCodigoEmprestimo(emprestimo.getCodigo());
+        itenDeEmprestimo.setCodigoLivro(livro.getCodigo());
+        itenDeEmprestimo.setCodigoPeriodico(livro.getCodigo());
+
+
+      itenDeEmprestimoSalvar = itenDeEmprestimo.getCodigo() + ";" +
+                itenDeEmprestimo.getCodigoEmprestimo() + ";" + itenDeEmprestimo.getCodigoLivro() + ";"
+                + itenDeEmprestimo.getCodigoLivro() + ";" + itenDeEmprestimo.getDataDevolucao() + "\n";
+
+        novoItenDeEmprestimo(itenDeEmprestimo);
+            System.out.println(" (1) Empresta novo item aperte / (0) para concluir o empestimo: ");
+            if(entrada.nextInt()==0){
+                menuitem=false;
+            }
 
         //Veririficar se aruivo existe parar criar cabeçalho
         if(!SalverCarregarCsv.verificarExistenciaDoArquivo("itenDeEmprestimos")) {
@@ -59,6 +63,9 @@ public class ItenEmprestimoVet {
             SalverCarregarCsv.salvar(cabecalho, "itenDeEmprestimos", cadastraNovaLinha);
         }
             SalverCarregarCsv.salvar(itenDeEmprestimoSalvar, "itenDeEmprestimos",cadastraNovaLinha);
+    }
+
+
             System.out.println("ItenDeEmprestimo Cadastrado Com Sucesso! ");
         }
 
