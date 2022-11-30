@@ -1,4 +1,18 @@
-Código funcionário;Nome Funcionário;Código cliente;Nome cliente;Código livro; título;Data do emprestiomo;Data da entraga 
-1010;leonardo;1012;lucas;9595;casa branca;25/11/2022;null
-1010;leonardo;999;Carlos;9595;casa branca;20/11/2022;null
-Total Itens Cadastrados : 2
+Código funcionário;Nome Funcionário;Código cliente;Nome cliente;Data do emprestiomo;Data da entraga 
+1010;leonardo;1012;lucas;25/11/2022;29/11/2022
+;;:ITEMS DO EMPRESTIMO:;; 
+código;título;tipo;data-devolução
+111;Programdo java;L;23/11/2022
+4545;casa;L;01/12/2022
+9595;casa branca;L;23/11/2022
+7484;avento do balala;P;20/11/2022
+9595;casa branca;L;28/11/2022
+
+1010;leonardo;999;Carlos;20/11/2022;null
+;;:ITEMS DO EMPRESTIMO:;; 
+111;Programdo java;L;null
+4545;casa;L;27/11/2022
+9595;casa branca;L;26/11/2022
+7484;avento do balala;P;null
+
+Total De Emprestimos:2

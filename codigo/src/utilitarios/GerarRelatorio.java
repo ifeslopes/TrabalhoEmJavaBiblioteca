@@ -38,7 +38,7 @@ public class GerarRelatorio {
         ItenEmprestimoVet itenEmprestimoVet = CarregarCsvVetor.carregarCsvItenEmprestimo();
 
         String relatorioEmprestimo = "Código funcionário;Nome Funcionário;Código cliente;" +
-                "Nome cliente;Código livro; título;Data do emprestiomo;Data da entraga \n";
+                "Nome cliente;Data do emprestiomo;Data da entraga \n";
 
         for (int i = 0; i < emprestimoVet.getEmprestimoVets().size(); i++) {
 
@@ -51,27 +51,35 @@ public class GerarRelatorio {
                     get(i).getMatriculaCliente());
 
 
-            for (int j = 0; j < itenEmprestimoVet.getItenDeEmprestimoVets().size(); j++) {
 
-                if (emprestimoVet.getEmprestimoVets().get(i).getCodigo() ==
-                        itenEmprestimoVet.getItenDeEmprestimoVets().get(j).getCodigoEmprestimo()) {
-
-                    //bucar o livro que foi emprestado
-                    livro = CarregarCsvVetor.buscarLivroPorCodigo(itenEmprestimoVet.getItenDeEmprestimoVets().
-                            get(j).getCodigoLivro());
-                }
-            }
 
             //montando variavel relatorio com Código funcionário, Nome Funcionário, Código cliente, Nome cliente,
             // Código livro, título, Data do emprestiomo, Data da entraga:
 
             relatorioEmprestimo += funcionario.getMatricula() + ";" + funcionario.getNome()
-                    + ";" + aluno.getMatricula() + ";" + aluno.getNome() + ";" + livro.getCodigo() + ";" + livro.getTitulo()
+                    + ";" + aluno.getMatricula() + ";" + aluno.getNome()
                     + ";" + emprestimoVet.getEmprestimoVets().get(i).getDataEmprestimo() + ";"
                     + emprestimoVet.getEmprestimoVets().get(i).getDataDevolucao() + "\n";
 
+            for (int j = 0; j < itenEmprestimoVet.getItenDeEmprestimoVets().size(); j++) {
+                if(j==0) {
+                    relatorioEmprestimo += ";;:ITEMS DO EMPRESTIMO:;; \n";
+                }
+                if(emprestimoVet.getEmprestimoVets().get(i).getCodigo()==
+                        itenEmprestimoVet.getItenDeEmprestimoVets().get(j).getCodigoEmprestimo()){
+
+                    livro = CarregarCsvVetor.buscarLivroPorCodigo(itenEmprestimoVet.getItenDeEmprestimoVets().get(j).getCodigoLivro());
+                    if(j==0) {
+                        relatorioEmprestimo += "código;título;tipo;data-devolução\n";
+                    }
+                    relatorioEmprestimo+= livro.getCodigo()+";"+livro.getTitulo()+";"+livro.getTipo()+";"+
+                            itenEmprestimoVet.getItenDeEmprestimoVets().get(j).getDataDevolucao()+"\n";
+                }
+            }
+            relatorioEmprestimo+="\n";
+
         }
-        relatorioEmprestimo += "Total Itens Cadastrados : " + emprestimoVet.getEmprestimoVets().size() + "\n";
+        relatorioEmprestimo += "Total De Emprestimos:" + emprestimoVet.getEmprestimoVets().size() + "\n";
 
         SalverCarregarCsv.salvarRelatorio(relatorioEmprestimo, "relatorioEmprestomo", false);
     }
@@ -79,6 +87,7 @@ public class GerarRelatorio {
     public static void gerarRelatorioFuncionario() {
 
         FuncionarioVet funcionarioVet = CarregarCsvVetor.carregarCsvFuncionario();
+        ItenEmprestimoVet itenEmprestimoVet = CarregarCsvVetor.carregarCsvItenEmprestimo();
         String relatririoFuncionario = "matrícula;nome;endereço;data-ingresso; setor; login ;senha \n";
         for (int i = 0; i < funcionarioVet.getFuncionarioVets().size(); i++) {
             //salvar no relatorioFuncionario.csv
@@ -89,6 +98,7 @@ public class GerarRelatorio {
                     + funcionarioVet.getFuncionarioVets().get(i).getSetor() + " ; "
                     + funcionarioVet.getFuncionarioVets().get(i).getLogin() + " ; "
                     + funcionarioVet.getFuncionarioVets().get(i).getSenha()+ "\n";
+
 
         }
         relatririoFuncionario += "Total Itens Cadastrados: " + funcionarioVet.getFuncionarioVets().size() + "\n";
