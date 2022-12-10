@@ -11,7 +11,7 @@ public class BuscarClienteLivro {
 
     public static Aluno buscarUsuario(){
         Scanner entrada =new Scanner(System.in);
-        AlunoVet alunoVet = CarregarCsvVetor.carregarCsvAluno();
+        AlunoVet alunoVet = CarregarCsvVetor.getAlunoVetrioVet();
 
         Aluno aluno=null;
 
@@ -53,7 +53,7 @@ public class BuscarClienteLivro {
 
     public static Livro buscarLivro(){
         Scanner entrada =new Scanner(System.in);
-        LivroVet livroVet = CarregarCsvVetor.carregarCsvLivro();
+        LivroVet livroVet = CarregarCsvVetor.getLivroVet();
 
         Livro livro=null;
 

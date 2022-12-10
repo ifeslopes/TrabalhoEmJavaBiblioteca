@@ -1,12 +1,15 @@
 package utilitarios;
 
 import classes.Funcionario;
+import utilitarios.estrategies.carregarvetores.Carregar;
 import vetorclasses.FuncionarioVet;
 
 import java.io.File;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,9 +33,22 @@ public  class Login  {
         boolean inicio =true;
 
 
+
         while (inicio) {
 
             if (diretorio.exists()) {
+                List<File> nome= Arrays.asList(diretorio.listFiles(File::isFile));
+                nome.stream().map(x-> x.toString().split("/")[nome.size()-2]).
+                        forEach(CarregarCsvVetor::carregarTudo);
+
+               /*
+                List<String>lista =new ArrayList<>();
+
+                for (int i = 0; i < nome.length; i++) {
+                    lista.add(nome[i].toString());
+                }
+
+                */
 
                 return telaLogin();
             } else {
@@ -54,7 +70,8 @@ public  class Login  {
     }
 
     public static boolean telaLogin(){
-        FuncionarioVet lista= CarregarCsvVetor.carregarCsvFuncionario();
+        FuncionarioVet lista= CarregarCsvVetor.getFuncionarioVet();
+
         Scanner entrada =new Scanner(System.in);
         boolean menu =true;
 

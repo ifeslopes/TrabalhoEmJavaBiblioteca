@@ -2,10 +2,7 @@ package vetorclasses;
 
 import classes.Aluno;
 import classes.Emprestimo;
-import utilitarios.BuscarClienteLivro;
-import utilitarios.CalculadoraDeData;
-import utilitarios.Login;
-import utilitarios.SalverCarregarCsv;
+import utilitarios.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +70,7 @@ public class EmprestimoVet {
                     emprestimo.getMatriculaCliente() + ";" + emprestimo.getMatriculaFuncionario() + ";"
                     + emprestimo.getDataEmprestimo() + ";" + emprestimo.getDataDevolucao() + "\n";
 
-            this.novoEmprestimo(emprestimo);
+            CarregarCsvVetor.getEmprestimoVet().novoEmprestimo(emprestimo);
 
 
             ItenEmprestimoVet itenEmprestimoVet =new ItenEmprestimoVet();

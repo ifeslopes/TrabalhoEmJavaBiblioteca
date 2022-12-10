@@ -1,5 +1,6 @@
 package vetorclasses;
 
+import utilitarios.CarregarCsvVetor;
 import utilitarios.SalverCarregarCsv;
 import classes.Livro;
 
@@ -46,8 +47,8 @@ public class LivroVet {
                 livro.getTitulo()+";"+livro.getEditora()+";"+livro.getTipo()+";"+
                 livro.getAnoDePublicacao()+";"+ livro.getIssn()+"\n";
 
-        novoLivro(livro);
 
+        CarregarCsvVetor.getLivroVet().novoLivro(livro);
         /* true= nova linha no arquivo csv e false = atualizar todo o aruuivo csv*/
         boolean cadastraNovaLinha =true;
 

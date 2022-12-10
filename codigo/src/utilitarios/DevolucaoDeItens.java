@@ -21,7 +21,9 @@ public class DevolucaoDeItens {
     String dataEmprestimo="";
     int codigoEprestimo=0;
     int matriculaAlunomultado=0;
-    boolean menuitem = true;
+
+    boolean menuitem = false;
+    int matriculaDoAluno =-1;
 
     //Calcular os dias de Atraso
     // pegando data no dia no formato dias/mes/anos
@@ -30,14 +32,14 @@ public class DevolucaoDeItens {
 
 
 
-    EmprestimoVet emprestimo = CarregarCsvVetor.carregarCsvEmprestimo();
+    EmprestimoVet emprestimo = CarregarCsvVetor.getEmprestimoVet();
     ItenEmprestimoVet itenEmprestimoVet = CarregarCsvVetor.carregarCsvItenEmprestimo();
 
 
         //Buscar codigoEprestimo, matriculaAlunomultado,dataEmprestimo
-        while (codigoEprestimo==0) {
-            System.out.println("Entre com matricula do aluno ou  entre com 0 parar listar os alunos com livro emprestado:");
-           int matriculaDoAluno = entreda.nextInt();
+        while (matriculaDoAluno!=0) {
+            System.out.println("Entre com matricula do aluno ou  entre com 1 parar listar os alunos com livro emprestado 0 para sair:");
+            matriculaDoAluno = entreda.nextInt();
 
             for (int i = 0; i < emprestimo.getEmprestimoVets().size(); i++) {
 
@@ -46,8 +48,8 @@ public class DevolucaoDeItens {
                         codigoEprestimo = emprestimo.getEmprestimoVets().get(i).getCodigo();
                         dataEmprestimo = emprestimo.getEmprestimoVets().get(i).getDataEmprestimo();
                         matriculaAlunomultado = emprestimo.getEmprestimoVets().get(i).getMatriculaCliente();
-
-
+                        matriculaDoAluno =0;
+                        menuitem=true;
 
                     }
 
@@ -57,7 +59,9 @@ public class DevolucaoDeItens {
                     System.out.println("Matricula do aluno não encontrado!\n");
                     System.out.println("Lista de matricula de aluno com livro emprestado:");
                     for (int i = 0; i < emprestimo.getEmprestimoVets().size(); i++) {
-                        if(emprestimo.getEmprestimoVets().get(i).getDataDevolucao().equalsIgnoreCase("null"))
+                        if(emprestimo.getEmprestimoVets().get(i).getDataDevolucao().equalsIgnoreCase("null")||
+                                emprestimo.getEmprestimoVets().get(i).getDataDevolucao().isEmpty()
+                        )
                         {
                             System.out.println("Matricula do aluno:" + emprestimo.getEmprestimoVets().get(i).getMatriculaCliente());
                         }
@@ -164,7 +168,7 @@ public class DevolucaoDeItens {
             //salvando os valores atualizado dos itenEmprestiomoVet,emprestiomoVet e DadosDaDevolucao
             SalverCarregarCsv.salvar(salvaEmprestimo, "emprestimos",atualizarCsv);
             SalverCarregarCsv.salvar(salvaItemEmprestimo, "itenDeEmprestimos",atualizarCsv);
-        System.out.println("\nDevolução realizada com sucesso!");
+        System.out.println((codigoEprestimo!=0)?"Devolução realizada com sucesso!":"");
 
     }
 
@@ -175,7 +179,7 @@ public class DevolucaoDeItens {
      //metodo para multa em caso de atraso na entraga
     public static String multarAluno(int matriculaAluno, int diasAtraso){
 
-        AlunoVet alunoVet = CarregarCsvVetor.carregarCsvAluno();
+        AlunoVet alunoVet = CarregarCsvVetor.getAlunoVetrioVet();
 
           String salvaAluno = "matrícula;nome;endereço;curso;data-ingresso;multa  \n";
         final  Double VALORMULTA = diasAtraso * 4.5;

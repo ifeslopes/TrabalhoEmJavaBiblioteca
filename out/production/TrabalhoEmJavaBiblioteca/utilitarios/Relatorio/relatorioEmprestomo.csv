@@ -1,18 +1,27 @@
 Código funcionário;Nome Funcionário;Código cliente;Nome cliente;Data do emprestiomo;Data da entraga 
-1010;leonardo;1012;lucas;25/11/2022;29/11/2022
+1010;julio;22;já-có;20/11/2022;30/11/2022
 ;;:ITEMS DO EMPRESTIMO:;; 
 código;título;tipo;data-devolução
-111;Programdo java;L;23/11/2022
-4545;casa;L;01/12/2022
-9595;casa branca;L;23/11/2022
-7484;avento do balala;P;20/11/2022
-9595;casa branca;L;28/11/2022
+1011;A casa;L;null
+451;avento;P;null
 
-1010;leonardo;999;Carlos;20/11/2022;null
+1010;julio;22;já-có;22/11/2022;30/11/2022
 ;;:ITEMS DO EMPRESTIMO:;; 
-111;Programdo java;L;null
-4545;casa;L;27/11/2022
-9595;casa branca;L;26/11/2022
-7484;avento do balala;P;null
+1011;A casa;L;20/11/2022
 
-Total De Emprestimos:2
+1010;julio;22;já-có;20/11/2022;30/11/2022
+;;:ITEMS DO EMPRESTIMO:;; 
+1011;A casa;L;26/11/2026
+451;avento;P;28/11/2022
+
+1010;julio;221;já-cóooooo;01/12/2022;30/11/2022
+;;:ITEMS DO EMPRESTIMO:;; 
+1011;A casa;L;10/12/2022
+451;avento;P;04/12/2022
+
+44;Lucas;8547;luiz;20/11/2022;null
+;;:ITEMS DO EMPRESTIMO:;; 
+451;avento;P;24/11/2022
+1011;A casa;L;null
+
+Total De Emprestimos:5

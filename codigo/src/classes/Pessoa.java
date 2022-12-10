@@ -2,11 +2,11 @@ package classes;
 
 import java.util.Date;
 
-public class Pessoa {
+public class  Pessoa {
     private int matricula;
     private String nome;
     private String endereco;
-    private String dataIngresso;
+    private  String dataIngresso;
     public Pessoa(){}
     public Pessoa(int matricula, String nome, String endereco, String dataIngresso) {
         this.matricula = matricula;

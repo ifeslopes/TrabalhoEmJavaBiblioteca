@@ -1,5 +1,6 @@
 package vetorclasses;
 
+import utilitarios.CarregarCsvVetor;
 import utilitarios.Login;
 import utilitarios.SalverCarregarCsv;
 import classes.Funcionario;
@@ -48,7 +49,7 @@ public class FuncionarioVet {
                 funcionario.getEndereco()+";"+funcionario.getDataIngresso()+";"+funcionario.getSetor()+";"+
                 funcionario.getSenha()+";"+funcionario.getLogin()+"\n";
 
-        novoFuncionario(funcionario);
+        CarregarCsvVetor.getFuncionarioVet().novoFuncionario(funcionario);
 
         /* true= nova linha no arquivo csv e false = atualizar todo o arquivo csv*/
         boolean cadastraNovaLinha =true;

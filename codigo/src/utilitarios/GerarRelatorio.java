@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class GerarRelatorio {
     public static void gerarRelatorioLivro() {
 
-        LivroVet livroVet = CarregarCsvVetor.carregarCsvLivro();
+        LivroVet livroVet = CarregarCsvVetor.getLivroVet();
         String relatririoLivro = "Código;autor(es);título;editora;tipo;ano de publicação;issn  \n";
         for (int i = 0; i < livroVet.getLivroVets().size(); i++) {
             //salvar no relatorioslivros.csv
@@ -34,7 +34,7 @@ public class GerarRelatorio {
         Funcionario funcionario = null;
         Aluno aluno = null;
         Livro livro = null;
-        EmprestimoVet emprestimoVet = CarregarCsvVetor.carregarCsvEmprestimo();
+        EmprestimoVet emprestimoVet = CarregarCsvVetor.getEmprestimoVet();
         ItenEmprestimoVet itenEmprestimoVet = CarregarCsvVetor.carregarCsvItenEmprestimo();
 
         String relatorioEmprestimo = "Código funcionário;Nome Funcionário;Código cliente;" +
@@ -86,7 +86,7 @@ public class GerarRelatorio {
 
     public static void gerarRelatorioFuncionario() {
 
-        FuncionarioVet funcionarioVet = CarregarCsvVetor.carregarCsvFuncionario();
+        FuncionarioVet funcionarioVet = CarregarCsvVetor.getFuncionarioVet();
         ItenEmprestimoVet itenEmprestimoVet = CarregarCsvVetor.carregarCsvItenEmprestimo();
         String relatririoFuncionario = "matrícula;nome;endereço;data-ingresso; setor; login ;senha \n";
         for (int i = 0; i < funcionarioVet.getFuncionarioVets().size(); i++) {
@@ -108,7 +108,7 @@ public class GerarRelatorio {
 
     public static void gerarRelatorioAluno() {
 
-        AlunoVet alunoVet = CarregarCsvVetor.carregarCsvAluno();
+        AlunoVet alunoVet = CarregarCsvVetor.getAlunoVetrioVet();
         String relatririoAluno = "matrícula;nome;endereço;curso;data-ingresso;multa  \n";
         for (int i = 0; i < alunoVet.getAlunoVets().size(); i++) {
             //salvar no relatorioAluno.csv
@@ -125,7 +125,7 @@ public class GerarRelatorio {
     }
     public static void imprimirMultaIndividual() {
         Scanner entrada = new Scanner(System.in);
-        AlunoVet alunoVet = CarregarCsvVetor.carregarCsvAluno();
+        AlunoVet alunoVet = CarregarCsvVetor.getAlunoVetrioVet();
 
         Aluno aluno = null;
 

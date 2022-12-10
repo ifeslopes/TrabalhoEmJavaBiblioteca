@@ -1,7 +1,9 @@
 package vetorclasses;
 
 import classes.Aluno;
+import utilitarios.CarregarCsvVetor;
 import utilitarios.SalverCarregarCsv;
+import utilitarios.estrategies.carregarvetores.CarregarAluno;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,7 @@ public class AlunoVet {
 
     Scanner entrada = new Scanner(System.in);
     private List<Aluno> alunoVets = new ArrayList<>();
+
 
     public AlunoVet() {
     }
@@ -45,7 +48,7 @@ public class AlunoVet {
                 + aluno.getEndereco() + ";" + aluno.getCurso() + ";" + aluno.getDataIngresso() +";"+
                  aluno.getMulta() + "\n";
 
-        novoAluno(aluno);
+        CarregarCsvVetor.getAlunoVetrioVet().novoAluno(aluno);
 
         /* true= nova linha no arquivo csv e false = atualizar todo o arquivo csv*/
         boolean cadastraNovaLinha =true;
