@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class FuncionarioVet {
 
 
-    private List<Funcionario> funcionarioVets = new ArrayList<>();
+    private final List<Funcionario> funcionarioVets = new ArrayList<>();
 
     public FuncionarioVet() {}
 
@@ -29,8 +29,7 @@ public class FuncionarioVet {
         Funcionario funcionario =new Funcionario();
 
         System.out.println("::N O V O -  F U N C I O N A R I O::");
-        System.out.println("Entre com matricula: ");
-        funcionario.setMatricula(entrada.nextInt());
+
         entrada.nextLine();
         System.out.println("Entre com nome: ");
         funcionario.setNome(entrada.nextLine());
@@ -49,7 +48,6 @@ public class FuncionarioVet {
                 funcionario.getEndereco()+";"+funcionario.getDataIngresso()+";"+funcionario.getSetor()+";"+
                 funcionario.getSenha()+";"+funcionario.getLogin()+"\n";
 
-        CarregarCsvVetor.getFuncionarioVet().novoFuncionario(funcionario);
 
         /* true= nova linha no arquivo csv e false = atualizar todo o arquivo csv*/
         boolean cadastraNovaLinha =true;
@@ -61,6 +59,7 @@ public class FuncionarioVet {
            SalverCarregarCsv.salvar(cabecalho, "funcionarios", cadastraNovaLinha);
        }
         SalverCarregarCsv.salvar(funcionarioSalvar, "funcionarios",cadastraNovaLinha);
+        //CarregarCsvVetor.getFuncionarioVet().novoFuncionario(funcionario);
 
 
     }

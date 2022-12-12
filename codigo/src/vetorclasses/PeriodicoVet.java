@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PeriodicoVet {
-    private List<Periodico> periodicoVets = new ArrayList<>();
+    private final List<Periodico> periodicoVets = new ArrayList<>();
 
     public PeriodicoVet() {}
 

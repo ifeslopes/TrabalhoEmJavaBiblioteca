@@ -34,6 +34,7 @@ public class CarregarCsvVetor {
 
       if(nomeArquivo.equalsIgnoreCase("funcionarios.csv")){
          novo = new Carregar(new CarregarFuncionario());
+
          funcionarioVet= (FuncionarioVet) novo.getEstrategy();
       }
 

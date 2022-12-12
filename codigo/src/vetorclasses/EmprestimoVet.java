@@ -9,11 +9,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmprestimoVet {
-    private List<Emprestimo> emprestimoVets = new ArrayList<>();
+    private final List<Emprestimo> emprestimoVets = new ArrayList<>();
+    final int CODIGO = 40000000;
 
-    public EmprestimoVet() {}
+    public EmprestimoVet() {
+    }
 
-    public  void novoEmprestimo(Emprestimo emprestimo){
+    public void novoEmprestimo(Emprestimo emprestimo) {
         this.emprestimoVets.add(emprestimo);
     }
 
@@ -22,27 +24,27 @@ public class EmprestimoVet {
     }
 
     public void emprestimo() {
-        Scanner entrada =new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in);
 
 
         System.out.println("::N O V O -  E M P R E S T I M O::");
-        Emprestimo emprestimo =new Emprestimo();
-
+        Emprestimo emprestimo = new Emprestimo();
+        if (SalverCarregarCsv.verificarExistenciaDoArquivo("emprestimos")) {
+            emprestimo.setCodigo(CarregarCsvVetor.getEmprestimoVet().getEmprestimoVets().get(CarregarCsvVetor
+                    .getEmprestimoVet().getEmprestimoVets().size() - 1).getCodigo() + 1);
+        } else {
+            emprestimo.setCodigo(CODIGO);
+        }
         //buscando object fazendo cast para aluno
-        Aluno aluno =  BuscarClienteLivro.buscarUsuario();
+        Aluno aluno = BuscarClienteLivro.buscarUsuario();
 
-        if(BuscarClienteLivro.culsuntaMulta(aluno)) {
-            System.out.println("Entre com codigo do emprestiomo: ");
-            emprestimo.setCodigo(entrada.nextInt());
+        if (BuscarClienteLivro.culsuntaMulta(aluno)) {
 
             emprestimo.setMatriculaCliente(aluno.getMatricula());
             emprestimo.setMatriculaFuncionario(Login.getMatriculaFuncionarioLogado());
-            String dataEmprestimo;
 
-            //String dataDevolucao;
-            //Integer validarData=0;
 
-            entrada.nextLine();
+
             /* metodo para funcionario cadastra a data da devolução manualmente
 
                 do {
@@ -60,34 +62,30 @@ public class EmprestimoVet {
                 }while (validarData < 0);
 
              */
-            System.out.println("Entre como data do emprestimo:\"dd/MM/yyyy\" ");
-            dataEmprestimo = entrada.nextLine();
-                emprestimo.setDataEmprestimo(dataEmprestimo);
 
+            emprestimo.setDataEmprestimo(CalculadoraDeData.getDataHoje());
 
 
             String emprestimoSalvar = emprestimo.getCodigo() + ";" +
                     emprestimo.getMatriculaCliente() + ";" + emprestimo.getMatriculaFuncionario() + ";"
                     + emprestimo.getDataEmprestimo() + ";" + emprestimo.getDataDevolucao() + "\n";
 
-            CarregarCsvVetor.getEmprestimoVet().novoEmprestimo(emprestimo);
 
-
-            ItenEmprestimoVet itenEmprestimoVet =new ItenEmprestimoVet();
+            ItenEmprestimoVet itenEmprestimoVet = new ItenEmprestimoVet();
             itenEmprestimoVet.itenDeEmprestimo(emprestimo);
 
             /* true= nova linha no arquivo csv e false = atualizar todo o arquivo csv*/
-            boolean cadastraNovaLinha =true;
+            boolean cadastraNovaLinha = true;
 
-            if(!SalverCarregarCsv.verificarExistenciaDoArquivo("emprestimos")) {
+            if (!SalverCarregarCsv.verificarExistenciaDoArquivo("emprestimos")) {
                 String cabecalho = "código;matrícula-cliente;matrícula-funcionário;data-empréstimo;data-devolução\n";
-                SalverCarregarCsv.salvar(cabecalho, "emprestimos",cadastraNovaLinha);
+                SalverCarregarCsv.salvar(cabecalho, "emprestimos", cadastraNovaLinha);
             }
 
-            SalverCarregarCsv.salvar(emprestimoSalvar, "emprestimos",cadastraNovaLinha);
+            SalverCarregarCsv.salvar(emprestimoSalvar, "emprestimos", cadastraNovaLinha);
             System.out.println("Emprestimo Realizado Com Sucesso! ");
+            //CarregarCsvVetor.getEmprestimoVet().novoEmprestimo(emprestimo);
         }
-
 
 
     }

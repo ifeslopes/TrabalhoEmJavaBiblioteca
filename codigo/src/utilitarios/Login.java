@@ -31,15 +31,15 @@ public  class Login  {
     public static boolean iniciar(){
         File diretorio =new File("codigo/src/utilitarios/Base_Dados");
         boolean inicio =true;
+        SalverCarregarCsv.atualizarDadosNoVetor(diretorio);
 
 
 
         while (inicio) {
 
             if (diretorio.exists()) {
-                List<File> nome= Arrays.asList(diretorio.listFiles(File::isFile));
-                nome.stream().map(x-> x.toString().split("/")[nome.size()-2]).
-                        forEach(CarregarCsvVetor::carregarTudo);
+
+
 
                /*
                 List<String>lista =new ArrayList<>();

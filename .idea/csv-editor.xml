@@ -31,6 +31,27 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/codigo/src/utilitarios/Base_Dados/livros.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/codigo/src/utilitarios/Base_Dados/periodicos.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/codigo/src/utilitarios/Relatorio/relatorioAluno.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/codigo/src/utilitarios/Relatorio/relatorioEmprestomo.csv">
           <value>
             <Attribute>
@@ -39,6 +60,13 @@
           </value>
         </entry>
         <entry key="/codigo/src/utilitarios/Relatorio/relatorioFuncionario.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/codigo/src/utilitarios/Relatorio/relatorioLivros.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />

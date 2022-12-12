@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class LivroVet {
-    private List<Livro> livroVets = new ArrayList<>();
+    private final List<Livro> livroVets = new ArrayList<>();
+    final int CODIGO =300;
 
     public LivroVet() {}
 
@@ -25,9 +26,14 @@ public class LivroVet {
         Scanner entrada =new Scanner(System.in);
         Livro livro =new Livro();
         System.out.println("::N O V O -  L I V R O::");
-        System.out.println("Entre com Codigo: ");
-        livro.setCodigo(entrada.nextInt());
-        entrada.nextLine();
+
+        if(SalverCarregarCsv.verificarExistenciaDoArquivo("livros")) {
+            livro.setCodigo(CarregarCsvVetor.getLivroVet().getLivroVets().get(CarregarCsvVetor
+                    .getLivroVet().getLivroVets().size() - 1).getCodigo() + 1);
+        }else {
+        livro.setCodigo(CODIGO);
+        }
+        
         System.out.println("Entre com nome dos autore(s),(se houver mais de um, separados por vírgula): ");
         livro.setAutores(entrada.nextLine());
         System.out.println("Entre com titulo do livro: ");
@@ -48,7 +54,6 @@ public class LivroVet {
                 livro.getAnoDePublicacao()+";"+ livro.getIssn()+"\n";
 
 
-        CarregarCsvVetor.getLivroVet().novoLivro(livro);
         /* true= nova linha no arquivo csv e false = atualizar todo o aruuivo csv*/
         boolean cadastraNovaLinha =true;
 
@@ -57,14 +62,15 @@ public class LivroVet {
             String cabecalho = "código;autor(es);título;editora;tipo;ano de publicação;issn \n";
             SalverCarregarCsv.salvar(cabecalho, "livros",cadastraNovaLinha);
         }
+
+
         SalverCarregarCsv.salvar(livroSalvar, "livros",cadastraNovaLinha);
 
         if(livro.getTipo()=='P'){
             PeriodicoVet periodico =new PeriodicoVet();
             periodico.cadastra(livro);
-
-
         }
+       // CarregarCsvVetor.getLivroVet().novoLivro(livro);
 
 
     }

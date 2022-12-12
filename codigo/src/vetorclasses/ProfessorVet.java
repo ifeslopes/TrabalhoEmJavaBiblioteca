@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class ProfessorVet {
 
     Scanner entrada = new Scanner(System.in);
-    private List<Professor> professorVets = new ArrayList<>();
+    private final List<Professor> professorVets = new ArrayList<>();
 
     public ProfessorVet() {
     }

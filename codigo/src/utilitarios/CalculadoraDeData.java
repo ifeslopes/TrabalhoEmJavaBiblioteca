@@ -8,7 +8,12 @@ import static java.lang.Integer.valueOf;
 
 public class CalculadoraDeData {
 
+
+    private static final String dataHoje = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
    //metodo para calcular diferença das datas
+    public static String getDataHoje() {
+        return dataHoje;
+    }
     public static Integer calcularData(String dataInico, String dataFim){
         Integer dias=0;
         try {

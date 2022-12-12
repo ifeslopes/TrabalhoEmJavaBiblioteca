@@ -27,7 +27,7 @@ public class DevolucaoDeItens {
 
     //Calcular os dias de Atraso
     // pegando data no dia no formato dias/mes/anos
-     String dataHoje = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
 
 
 
@@ -99,7 +99,7 @@ public class DevolucaoDeItens {
                     final  int DIAS_ALUNO_PODE_FICAR_COM_LIVRO=5;
 
                     System.out.println("Dias Atraso: "+(diasAtraso - DIAS_ALUNO_PODE_FICAR_COM_LIVRO));
-                    System.out.println("Hoje: "+dataHoje);
+                    System.out.println("Hoje: "+CalculadoraDeData.getDataHoje());
 
                     //se os dias de atraso for maior DIAS_ALUNO_PODE_FICAR_COM_LIVRO
                     // que vai ser chamado o metodo prara multa aluno
@@ -134,10 +134,11 @@ public class DevolucaoDeItens {
         boolean removerEmpretrimo=true;
         for (int i = 0; i < itenEmprestimoVet.getItenDeEmprestimoVets().size(); i++) {
 
-            if(itenEmprestimoVet.getItenDeEmprestimoVets().get(i).getDataDevolucao().equalsIgnoreCase("null")&&
-                    itenEmprestimoVet.getItenDeEmprestimoVets().get(i).getCodigoEmprestimo()==codigoEprestimo){
+            if (itenEmprestimoVet.getItenDeEmprestimoVets().get(i).getDataDevolucao().equalsIgnoreCase("null") &&
+                    itenEmprestimoVet.getItenDeEmprestimoVets().get(i).getCodigoEmprestimo() == codigoEprestimo) {
 
                 removerEmpretrimo = false;
+                break;
             }
 
         }
@@ -146,7 +147,7 @@ public class DevolucaoDeItens {
         if (removerEmpretrimo){
             for (int i = 0; i < emprestimo.getEmprestimoVets().size(); i++) {
                 if(emprestimo.getEmprestimoVets().get(i).getCodigo()== codigoEprestimo){
-                    emprestimo.getEmprestimoVets().get(i).setDataDevolucao(dataHoje);
+                    emprestimo.getEmprestimoVets().get(i).setDataDevolucao(CalculadoraDeData.getDataHoje());
 
                 }
             }

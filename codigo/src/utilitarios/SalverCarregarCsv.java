@@ -2,6 +2,7 @@ package utilitarios;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public  class SalverCarregarCsv {
@@ -27,6 +28,7 @@ public  class SalverCarregarCsv {
             System.out.println("Erro de I/O: "+e.getMessage());
             System.exit(0);
         }
+        atualizarDadosNoVetor(diretorio);
 
     }
 
@@ -36,15 +38,20 @@ public  class SalverCarregarCsv {
             try {
             File diretorio =new File("codigo/src/utilitarios/Base_Dados");
             File arquivo = new File(diretorio,planilha);
-            FileReader lerArquivo = new  FileReader(arquivo);
-            BufferedReader bufferedReader =new BufferedReader(lerArquivo);
 
-            String linha="";
+                FileReader lerArquivo = new FileReader(arquivo);
+                BufferedReader bufferedReader = new BufferedReader(lerArquivo);
+
+                String linha = "";
 
 
-            while((linha = bufferedReader.readLine())!=null){
-                resultado.add(linha);
-            }
+                while ((linha = bufferedReader.readLine()) != null) {
+                    resultado.add(linha);
+                }
+
+
+
+
 
             bufferedReader.close();
             lerArquivo.close();
@@ -59,6 +66,11 @@ public  class SalverCarregarCsv {
         public static boolean verificarExistenciaDoArquivo(String arquivo){
             File diretorio =new File("codigo/src/utilitarios/Base_Dados/"+arquivo+".csv");
         return diretorio.exists();
+        }
+        public static void atualizarDadosNoVetor(File diretorio){
+            List<File> nome= Arrays.asList(diretorio.listFiles(File::isFile));
+            nome.stream().map(x-> x.toString().split("/")).map(x->x[4]).
+                    forEach(CarregarCsvVetor::carregarTudo);
         }
 
     public static void salvarRelatorio(String salvar, String nome,boolean novoAtualizar){

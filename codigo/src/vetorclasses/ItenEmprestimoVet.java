@@ -4,6 +4,7 @@ import classes.Emprestimo;
 import classes.ItenDeEmprestimo;
 import classes.Livro;
 import utilitarios.BuscarClienteLivro;
+import utilitarios.CarregarCsvVetor;
 import utilitarios.SalverCarregarCsv;
 
 import java.util.ArrayList;
@@ -11,8 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ItenEmprestimoVet {
-    private List<ItenDeEmprestimo> itenDeEmprestimoVets = new ArrayList<>();
-
+    private final List<ItenDeEmprestimo> itenDeEmprestimoVets = new ArrayList<>();
+    final int CODIGO =500;
     public ItenEmprestimoVet() {}
 
     public  void novoItenDeEmprestimo(ItenDeEmprestimo itenDeEmprestimo){
@@ -35,12 +36,20 @@ public class ItenEmprestimoVet {
         ItenDeEmprestimo itenDeEmprestimo = new ItenDeEmprestimo();
 
 
+
         while (menuitem){
             Livro livro = BuscarClienteLivro.buscarLivro();
 
+            if(SalverCarregarCsv.verificarExistenciaDoArquivo("itenDeEmprestimos")) {
+                itenDeEmprestimo.setCodigo(CarregarCsvVetor.carregarCsvItenEmprestimo().getItenDeEmprestimoVets()
+                        .get(CarregarCsvVetor.carregarCsvItenEmprestimo().getItenDeEmprestimoVets().size() - 1)
+                        .getCodigo() + 1);
+            }else {
+                itenDeEmprestimo.setCodigo(CODIGO);
+            }
 
-        System.out.println("Entre com codigodo emprestiomo do item: ");
-        itenDeEmprestimo.setCodigo(entrada.nextInt());
+
+
         itenDeEmprestimo.setCodigoEmprestimo(emprestimo.getCodigo());
         itenDeEmprestimo.setCodigoLivro(livro.getCodigo());
         itenDeEmprestimo.setCodigoPeriodico(livro.getCodigo());
