@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public  class SalverCarregarCsv {
+
     public SalverCarregarCsv() {
     }
 
@@ -48,11 +49,6 @@ public  class SalverCarregarCsv {
                 while ((linha = bufferedReader.readLine()) != null) {
                     resultado.add(linha);
                 }
-
-
-
-
-
             bufferedReader.close();
             lerArquivo.close();
 
@@ -64,13 +60,16 @@ public  class SalverCarregarCsv {
           return resultado;
         }
         public static boolean verificarExistenciaDoArquivo(String arquivo){
-            File diretorio =new File("codigo/src/utilitarios/Base_Dados/"+arquivo+".csv");
-        return diretorio.exists();
+            File diretorioExist =new File("codigo/src/utilitarios/Base_Dados/"+arquivo+".csv");
+        return diretorioExist.exists();
         }
         public static void atualizarDadosNoVetor(File diretorio){
-            List<File> nome= Arrays.asList(diretorio.listFiles(File::isFile));
-            nome.stream().map(x-> x.toString().split("/")).map(x->x[4]).
+
+        if(diretorio.exists()) {
+            List<File> nome = Arrays.asList(diretorio.listFiles(File::isFile));
+            nome.stream().map(x -> x.toString().split("/")).map(x -> x[4]).
                     forEach(CarregarCsvVetor::carregarTudo);
+        }
         }
 
     public static void salvarRelatorio(String salvar, String nome,boolean novoAtualizar){

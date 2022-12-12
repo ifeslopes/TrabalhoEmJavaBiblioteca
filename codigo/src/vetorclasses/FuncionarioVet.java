@@ -1,5 +1,6 @@
 package vetorclasses;
 
+import utilitarios.CalculadoraDeData;
 import utilitarios.CarregarCsvVetor;
 import utilitarios.Login;
 import utilitarios.SalverCarregarCsv;
@@ -30,13 +31,12 @@ public class FuncionarioVet {
 
         System.out.println("::N O V O -  F U N C I O N A R I O::");
 
-        entrada.nextLine();
+
         System.out.println("Entre com nome: ");
         funcionario.setNome(entrada.nextLine());
         System.out.println("Entre com endereço: ");
         funcionario.setEndereco(entrada.nextLine());
-        System.out.println("Entre com data do ingresso: ");
-        funcionario.setDataIngresso(entrada.nextLine());
+        funcionario.setDataIngresso(CalculadoraDeData.getDataHoje());
         System.out.println("Entre com setor: ");
         funcionario.setSetor(entrada.nextLine());
         System.out.println("Cadastre seu login: ");

@@ -1,3 +1,5 @@
 matrícula;nome;endereço;curso;data-ingresso;multa  
-22 ; já-có ; Rua da casa do jáco Bairro: do já-co ; ADS ; 20/11/2022 ; 4.5 
- Total Itens Cadastrados: 1
+200 ; Lucas ; Rua aluno ; Direito ; 11/12/2022 ; 0.0 
+ 201 ; Aluno_1 ; Rua: B Bairro: novo Cidade: Velha  ; Direito ; 11/12/2022 ; 0.0 
+ 202 ; Caio ; Rua J Bairro lagos Ciaddedo Serra ; Letras ; 12/12/2022 ; 4.5 
+ Total Itens Cadastrados: 3
