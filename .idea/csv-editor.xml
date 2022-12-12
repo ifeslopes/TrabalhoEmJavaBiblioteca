@@ -38,13 +38,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/codigo/src/utilitarios/Base_Dados/periodicos.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="/codigo/src/utilitarios/Relatorio/relatorioAluno.csv">
           <value>
             <Attribute>

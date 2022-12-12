@@ -1,5 +1,6 @@
 # Sistema de Gerenciamento de Biblioteca
 
+
 ### Descrição do problema
 O projeto de programação é o desenvolvimento de uma versão eletrônica básica de um Sistema de
 Gerenciamento de Biblioteca. Tal sistema tem por finalidade controlar entrada e saída de acervos,
@@ -154,3 +155,99 @@ do Java: https://www.oracle.com/technetwork/java/codeconvtoc-136057.html;
 - Se o aluno sabe responder questões formuladas pelo professor durante a entrevista sobre o
 código-fonte escrito pela dupla.
 - Se o aluno fez as postagens definidas para serem realizadas durante as aulas de orientação.
+### Arvore De Arquivos E Diretorio ###
+```
+├── codigo.iml
+└── src
+├── classes
+│   ├── Aluno.class
+│   ├── Aluno.java
+│   ├── Emprestimo.java
+│   ├── Funcionario.java
+│   ├── ItenDeEmprestimo.java
+│   ├── Livro.java
+│   ├── Periodico.java
+│   ├── Pessoa.java
+│   └── Professor.java
+├── menu
+│   ├── MenuCadastroDeusuario.java
+│   ├── MenuPricipal.java
+│   └── MenuRelatorio.java
+├── ProgramaPrincial.java
+├── utilitarios
+│   ├── Base_Dados
+│   │   ├── alunos.csv
+│   │   ├── emprestimos.csv
+│   │   ├── funcionarios.csv
+│   │   ├── itenDeEmprestimos.csv
+│   │   └── livros.csv
+│   ├── BuscarClienteLivro.java
+│   ├── CalculadoraDeData.java
+│   ├── CarregarCsvVetor.java
+│   ├── DevolucaoDeItens.java
+│   ├── estrategies
+│   │   └── carregarvetores
+│   │       ├── CarregarAluno.java
+│   │       ├── CarregarEmprestimo.java
+│   │       ├── CarregarFuncionario.java
+│   │       ├── Carregar.java
+│   │       ├── CarregarLivro.java
+│   │       └── Estrategy.java
+│   ├── GerarRelatorio.java
+│   ├── Login.java
+│   ├── Relatorio
+│   │   ├── relatorioAluno.csv
+│   │   ├── relatorioEmprestomo.csv
+│   │   ├── relatorioFuncionario.csv
+│   │   └── relatorioLivros.csv
+│   └── SalverCarregarCsv.java
+└── vetorclasses
+├── AlunoVet.java
+├── EmprestimoVet.java
+├── FuncionarioVet.java
+├── ItenEmprestimoVet.java
+├── LivroVet.java
+├── PeriodicoVet.java
+└── ProfessorVet.java
+```
+###  Instalação ###
+Utilizando Git:<br>
+clone o diretório com comando abaixo na pasta de trabalho e abra utilizando sua IDE para rodar:
+```
+git clone https://github.com/ifeslopes/TrabalhoEmJavaBiblioteca.git
+```
+Baixando zip:<br>
+Baixe zip e descompact pasta de trabalho e abra utilizando sua IDE para rodar:<br>
+[Trabalho_Biblioteca.zip](https://github.com/ifeslopes/TrabalhoEmJavaBiblioteca/archive/refs/heads/main.zip)
+
+
+## Funcionalidades ##
+### Cadastro de usuários ###
+![This is an image](img/tela01.png)
+![This is an image](img/teLa02.png)
+
+### Autenticar Usuário ###
+![This is an image](img/tela03.png)
+
+### Cadastro de itens ###
+![This is an image](img/tela04.png)
+
+### Empréstimo de itens ###
+![This is an image](img/tela05.png)
+![This is an image](img/tela05-0.png)
+![This is an image](img/tela05-1.png)
+### Devolução de itens ###
+![This is an image](img/tela06.png)
+### Emitir Relatório 
+
+- Funcionários cadastrados:
+![This is an image](img/telarela02.png)
+- Alunos cadastrados:
+![This is an image](img/telarela03.png)
+- Livros cadastrados:
+![This is an image](img/telarela04.png) 
+- Empréstimos realizados:
+![This is an image](img/telarela01.png)
+- Imprimir multa individual.:
+![This is an image](img/telarela05.png)
+

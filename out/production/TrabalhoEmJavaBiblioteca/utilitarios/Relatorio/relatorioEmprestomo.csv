@@ -1,18 +1,25 @@
 Código funcionário;Nome Funcionário;Código cliente;Nome cliente;Data do emprestiomo;Data da entraga 
-44;Lucas;201;Caio;11/12/2022;null
+0;Novo Funcionario_1;200;Lucas;11/12/2022;null
 ;;:ITEMS DO EMPRESTIMO:;; 
 código;título;tipo;data-devolução
-300;A casa;L;16/12/2022
 301;JAVA;L;null
+300;A casa;L;null
 
-44;Lucas;203;thais;11/12/2022;null
+0;Novo Funcionario_1;201;Aluno_1;12/12/2022;null
+;;:ITEMS DO EMPRESTIMO:;; 
+303;PYTHON ;L;null
+302;JAVA INICIANTE;L;null
+300;A casa;L;null
+
+0;Novo Funcionario_1;201;Aluno_1;12/12/2022;null
 ;;:ITEMS DO EMPRESTIMO:;; 
 300;A casa;L;null
-300;A casa;L;15/12/2022
+301;JAVA;L;null
+304;LOGICA P/ INICIANTE;L;null
 
-44;Lucas;202;juca;11/12/2022;null
+0;Novo Funcionario_1;202;Caio;12/12/2022;null
 ;;:ITEMS DO EMPRESTIMO:;; 
-300;A casa;L;null
-301;JAVA;L;11/01/2023
+304;LOGICA P/ INICIANTE;L;18/12/2022
+303;PYTHON ;L;null
 
-Total De Emprestimos:3
+Total De Emprestimos:4
