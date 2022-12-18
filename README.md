@@ -293,6 +293,6 @@ copie esse código para o arquivo Pom.xml do Mave
 ![This is an image](img/telarela01.png)
 - Empréstimos realizados: PDF
 ![This is an image](img/pdfrelatorio03.png)
-- Imprimir multa individual.:
+- Imprimir multa individual:<br>
 ![This is an image](img/telarela05.png)
 
