@@ -210,6 +210,20 @@ código-fonte escrito pela dupla.
 ├── PeriodicoVet.java
 └── ProfessorVet.java
 ```
+###  Tecnologia Utilizada No Desenvolvimento ###
+- java se(Standard Edition) bibliotecas utilizadas
+  - File
+  -  FileWriter
+  - PrintWrite
+  - List
+  - LocalDate
+  - DateTimeFormatter
+  - Duration
+  - Lambda
+  - stream
+  - Tratando De Exceções
+- [ Maven](https://maven.apache.org/)
+- [ Itextpdf](https://itextpdf.com/)
 ###  Instalação ###
 Utilizando Git:<br>
 clone o diretório com comando abaixo na pasta de trabalho e abra utilizando sua IDE para rodar:
@@ -220,7 +234,31 @@ Baixando zip:<br>
 Baixe zip e descompact pasta de trabalho e abra utilizando sua IDE para rodar:<br>
 [Trabalho_Biblioteca.zip](https://github.com/ifeslopes/TrabalhoEmJavaBiblioteca/archive/refs/heads/main.zip)
 
-
+Depaendencias do Itextpdf:
+copie esse código para o arquivo Pom.xml do Mave
+```
+  <dependency>
+            <groupId>br.com.caelum.stella</groupId>
+            <artifactId>caelum-stella-core</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.caelum.stella</groupId>
+            <artifactId>caelum-stella-boleto</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext7-core</artifactId>
+            <version>${itext.version}</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+```
 ## Funcionalidades ##
 ### Cadastro de usuários ###
 ![This is an image](img/tela01.png)
@@ -240,14 +278,21 @@ Baixe zip e descompact pasta de trabalho e abra utilizando sua IDE para rodar:<b
 ![This is an image](img/tela06.png)
 ### Emitir Relatório 
 
-- Funcionários cadastrados:
+- Funcionários cadastrados CSV:
 ![This is an image](img/telarela02.png)
-- Alunos cadastrados:
+- Funcionários cadastrados PDF:
+![This is an image](img/pdfrelatorio02.png)
+- Alunos cadastrados CSV:
 ![This is an image](img/telarela03.png)
-- Livros cadastrados:
+- Livros cadastrados:CSV
 ![This is an image](img/telarela04.png) 
-- Empréstimos realizados:
+- Livros cadastrados:PDF
+![This is an image](img/pdfrelatorio01.png)
+
+- Empréstimos realizados: CSV
 ![This is an image](img/telarela01.png)
+- Empréstimos realizados: PDF
+![This is an image](img/pdfrelatorio03.png)
 - Imprimir multa individual.:
 ![This is an image](img/telarela05.png)
 

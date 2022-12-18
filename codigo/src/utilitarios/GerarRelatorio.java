@@ -63,25 +63,25 @@ public class GerarRelatorio {
 
             for (int j = 0; j < itenEmprestimoVet.getItenDeEmprestimoVets().size(); j++) {
                 if(j==0) {
-                    relatorioEmprestimo += ";;:ITEMS DO EMPRESTIMO:;; \n";
+                    relatorioEmprestimo += ".;.;.;:ITENS DO EMPRESTIMO:;.;. \n";
                 }
                 if(emprestimoVet.getEmprestimoVets().get(i).getCodigo()==
                         itenEmprestimoVet.getItenDeEmprestimoVets().get(j).getCodigoEmprestimo()){
 
                     livro = CarregarCsvVetor.buscarLivroPorCodigo(itenEmprestimoVet.getItenDeEmprestimoVets().get(j).getCodigoLivro());
                     if(j==0) {
-                        relatorioEmprestimo += "código;título;tipo;data-devolução\n";
+                        relatorioEmprestimo += "código;título;tipo;data-devolução;.;.\n";
                     }
                     relatorioEmprestimo+= livro.getCodigo()+";"+livro.getTitulo()+";"+livro.getTipo()+";"+
-                            itenEmprestimoVet.getItenDeEmprestimoVets().get(j).getDataDevolucao()+"\n";
+                            itenEmprestimoVet.getItenDeEmprestimoVets().get(j).getDataDevolucao()+";.;.\n";
                 }
             }
-            relatorioEmprestimo+="\n";
+            relatorioEmprestimo+=".;.;.;.;.;.\n";
 
         }
         relatorioEmprestimo += "Total De Emprestimos:" + emprestimoVet.getEmprestimoVets().size() + "\n";
 
-        SalverCarregarCsv.salvarRelatorio(relatorioEmprestimo, "relatorioEmprestomo", false);
+        SalverCarregarCsv.salvarRelatorio(relatorioEmprestimo, "relatorioEmprestimo", false);
     }
 
     public static void gerarRelatorioFuncionario() {

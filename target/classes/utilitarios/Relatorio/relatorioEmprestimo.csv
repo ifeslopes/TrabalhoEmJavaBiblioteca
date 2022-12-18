@@ -1,0 +1,33 @@
+Código funcionário;Nome Funcionário;Código cliente;Nome cliente;Data do emprestiomo;Data da entraga 
+0;Leonardo;200;Lucas;11/12/2022;null
+.;.;.;:ITENS DO EMPRESTIMO:;.;. 
+código;título;tipo;data-devolução;.;.
+301;JAVA;L;null;.;.
+300;A casa;L;null;.;.
+.;.;.;.;.;.
+0;Leonardo;201;Aluno_1;12/12/2022;15/12/2022
+.;.;.;:ITENS DO EMPRESTIMO:;.;. 
+303;PYTHON ;L;20/12/2022;.;.
+302;JAVA INICIANTE;L;17/12/2022;.;.
+300;A casa;L;18/12/2022;.;.
+.;.;.;.;.;.
+0;Leonardo;201;Aluno_1;12/12/2022;null
+.;.;.;:ITENS DO EMPRESTIMO:;.;. 
+300;A casa;L;null;.;.
+301;JAVA;L;null;.;.
+304;LOGICA P/ INICIANTE;L;null;.;.
+.;.;.;.;.;.
+0;Leonardo;202;Caio;12/12/2022;null
+.;.;.;:ITENS DO EMPRESTIMO:;.;. 
+304;LOGICA P/ INICIANTE;L;18/12/2022;.;.
+303;PYTHON ;L;null;.;.
+.;.;.;.;.;.
+0;Leonardo;201;Aluno_1;12/12/2022;null
+.;.;.;:ITENS DO EMPRESTIMO:;.;. 
+304;LOGICA P/ INICIANTE;L;null;.;.
+.;.;.;.;.;.
+0;Leonardo;201;Aluno_1;15/12/2022;null
+.;.;.;:ITENS DO EMPRESTIMO:;.;. 
+305;HTML Fiacil;L;null;.;.
+.;.;.;.;.;.
+Total De Emprestimos:6

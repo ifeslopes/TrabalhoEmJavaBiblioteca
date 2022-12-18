@@ -63,12 +63,17 @@ public  class SalverCarregarCsv {
             File diretorioExist =new File("codigo/src/utilitarios/Base_Dados/"+arquivo+".csv");
         return diretorioExist.exists();
         }
+        public static boolean relatorioExiste(String arquivo){
+            File diretorioExist =new File("codigo/src/utilitarios/Relatorio/"+arquivo+".csv");
+        return diretorioExist.exists();
+        }
         public static void atualizarDadosNoVetor(File diretorio){
 
         if(diretorio.exists()) {
             List<File> nome = Arrays.asList(diretorio.listFiles(File::isFile));
             nome.stream().map(x -> x.toString().split("/")).map(x -> x[4]).
                     forEach(CarregarCsvVetor::carregarTudo);
+            nome.stream().forEach(System.out::println);
         }
         }
 

@@ -14,6 +14,7 @@ public class FuncionarioVet {
 
 
     private final List<Funcionario> funcionarioVets = new ArrayList<>();
+    final int CODIGO = 00000000;
 
     public FuncionarioVet() {}
 
@@ -30,6 +31,12 @@ public class FuncionarioVet {
         Funcionario funcionario =new Funcionario();
 
         System.out.println("::N O V O -  F U N C I O N A R I O::");
+        if (SalverCarregarCsv.verificarExistenciaDoArquivo("funcionarios")) {
+            funcionario.setMatricula(CarregarCsvVetor.getFuncionarioVet().getFuncionarioVets().get(CarregarCsvVetor
+                    .getAlunoVetrioVet().getAlunoVets().size() - 1).getMatricula() + 1);
+        } else {
+            funcionario.setMatricula(CODIGO);
+        }
 
 
         System.out.println("Entre com nome: ");

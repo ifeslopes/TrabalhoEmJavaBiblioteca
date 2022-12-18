@@ -1,16 +1,11 @@
 package utilitarios;
 
-import classes.Funcionario;
-import utilitarios.estrategies.carregarvetores.Carregar;
 import vetorclasses.FuncionarioVet;
 
 import java.io.File;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public  class Login  {
@@ -38,17 +33,6 @@ public  class Login  {
         while (inicio) {
 
             if (diretorio.exists()) {
-
-
-
-               /*
-                List<String>lista =new ArrayList<>();
-
-                for (int i = 0; i < nome.length; i++) {
-                    lista.add(nome[i].toString());
-                }
-
-                */
 
                 return telaLogin();
             } else {

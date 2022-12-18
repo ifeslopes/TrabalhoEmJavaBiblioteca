@@ -1,7 +1,7 @@
 package utilitarios;
 
 import classes.*;
-import utilitarios.estrategies.carregarvetores.*;
+import estrategies.carregarvetores.*;
 import vetorclasses.*;
 
 import java.util.List;
@@ -30,25 +30,24 @@ public class CarregarCsvVetor {
  //refatoração com patradão de projeto estrategy
   public static void carregarTudo(String nomeArquivo){
 
-  Carregar novo;
+  Carregar novo = new Carregar();
 
       if(nomeArquivo.equalsIgnoreCase("funcionarios.csv")){
-         novo = new Carregar(new CarregarFuncionario());
-
-         funcionarioVet= (FuncionarioVet) novo.getEstrategy();
+         novo.setEstrategy(new CarregarFuncionario());
+        funcionarioVet= (FuncionarioVet) novo.getEstrategy();
       }
 
       if(nomeArquivo.equalsIgnoreCase("alunos.csv")){
-         novo = new Carregar(new CarregarAluno());
-         alunoVet= (AlunoVet) novo.getEstrategy();
+         novo.setEstrategy(new CarregarAluno());
+        alunoVet= (AlunoVet) novo.getEstrategy();
       }
       if(nomeArquivo.equalsIgnoreCase("livros.csv")){
-         novo = new Carregar(new CarregarLivro());
-        livroVet = (LivroVet) novo.getEstrategy();
+         novo.setEstrategy(new CarregarLivro());
+         livroVet = (LivroVet) novo.getEstrategy();
       }
       if(nomeArquivo.equalsIgnoreCase("emprestimos.csv")){
-         novo = new Carregar(new CarregarEmprestimo());
-        emprestimoVet = (EmprestimoVet) novo.getEstrategy();
+         novo.setEstrategy(new CarregarEmprestimo());
+        emprestimoVet= (EmprestimoVet) novo.getEstrategy();
       }
 
   }
@@ -66,8 +65,9 @@ public class CarregarCsvVetor {
                 for (int i = 1; i < listas.size(); i++) {
                     String[] itemEmpre = listas.get(i).split(";");
 
-                    ItenDeEmprestimo itenDeEmprestimo = new ItenDeEmprestimo(Integer.parseInt(itemEmpre[0]), Integer.parseInt(itemEmpre[1]),
-                            Integer.parseInt(itemEmpre[2]), Integer.parseInt(itemEmpre[3]), itemEmpre[4]);
+                    ItenDeEmprestimo itenDeEmprestimo = new ItenDeEmprestimo(Integer.parseInt(itemEmpre[0]),
+                            Integer.parseInt(itemEmpre[1]), Integer.parseInt(itemEmpre[2])
+                            , Integer.parseInt(itemEmpre[3]), itemEmpre[4]);
 
                     itemEmprestimoVet.novoItenDeEmprestimo(itenDeEmprestimo);
                 }
@@ -77,6 +77,9 @@ public class CarregarCsvVetor {
             }
                 return itemEmprestimoVet;
         }
+
+
+
 
         //_____________________Buscas Individuais para funcionario cliente e livro---------------------------------
         public static Funcionario buscarFuncionarioPorMatricula(Integer matricul) {
