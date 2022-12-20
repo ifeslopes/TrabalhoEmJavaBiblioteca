@@ -157,58 +157,55 @@ código-fonte escrito pela dupla.
 - Se o aluno fez as postagens definidas para serem realizadas durante as aulas de orientação.
 ### Arvore De Arquivos E Diretorio ###
 ```
+codigo
 ├── codigo.iml
 └── src
-├── classes
-│   ├── Aluno.class
-│   ├── Aluno.java
-│   ├── Emprestimo.java
-│   ├── Funcionario.java
-│   ├── ItenDeEmprestimo.java
-│   ├── Livro.java
-│   ├── Periodico.java
-│   ├── Pessoa.java
-│   └── Professor.java
-├── menu
-│   ├── MenuCadastroDeusuario.java
-│   ├── MenuPricipal.java
-│   └── MenuRelatorio.java
-├── ProgramaPrincial.java
-├── utilitarios
-│   ├── Base_Dados
-│   │   ├── alunos.csv
-│   │   ├── emprestimos.csv
-│   │   ├── funcionarios.csv
-│   │   ├── itenDeEmprestimos.csv
-│   │   └── livros.csv
-│   ├── BuscarClienteLivro.java
-│   ├── CalculadoraDeData.java
-│   ├── CarregarCsvVetor.java
-│   ├── DevolucaoDeItens.java
-│   ├── estrategies
-│   │   └── carregarvetores
-│   │       ├── CarregarAluno.java
-│   │       ├── CarregarEmprestimo.java
-│   │       ├── CarregarFuncionario.java
-│   │       ├── Carregar.java
-│   │       ├── CarregarLivro.java
-│   │       └── Estrategy.java
-│   ├── GerarRelatorio.java
-│   ├── Login.java
-│   ├── Relatorio
-│   │   ├── relatorioAluno.csv
-│   │   ├── relatorioEmprestomo.csv
-│   │   ├── relatorioFuncionario.csv
-│   │   └── relatorioLivros.csv
-│   └── SalverCarregarCsv.java
-└── vetorclasses
-├── AlunoVet.java
-├── EmprestimoVet.java
-├── FuncionarioVet.java
-├── ItenEmprestimoVet.java
-├── LivroVet.java
-├── PeriodicoVet.java
-└── ProfessorVet.java
+    ├── classes
+    │   ├── Aluno.java
+    │   ├── Emprestimo.java
+    │   ├── Funcionario.java
+    │   ├── ItenDeEmprestimo.java
+    │   ├── Livro.java
+    │   ├── Periodico.java
+    │   ├── Pessoa.java
+    │   └── Professor.java
+    ├── estrategies
+    │   ├── carregarvetores
+    │   │   ├── CarregarAluno.java
+    │   │   ├── CarregarEmprestimo.java
+    │   │   ├── CarregarFuncionario.java
+    │   │   ├── Carregar.java
+    │   │   ├── CarregarLivro.java
+    │   │   └── Estrategy.java
+    │   └── salvarPdf
+    │       ├── EstrategyPdf.java
+    │       ├── SalvarEmprestimoPdf.java
+    │       ├── SalvarFuncionarioPdf.java
+    │       ├── SalvarLivroPdf.java
+    │       └── SalvarPdf.java
+    ├── menu
+    │   ├── MenuCadastroDeusuario.java
+    │   ├── MenuPricipal.java
+    │   └── MenuRelatorio.java
+    ├── ProgramaPrincial.java
+    ├── utilitarios
+    │   ├── BuscarClienteLivro.java
+    │   ├── CalculadoraDeData.java
+    │   ├── CarregarCsvVetor.java
+    │   ├── CriarPdf.java
+    │   ├── DevolucaoDeItens.java
+    │   ├── GerarRelatorio.java
+    │   ├── Login.java
+    │   └── SalverCarregarCsv.java
+    └── vetorclasses
+        ├── AlunoVet.java
+        ├── EmprestimoVet.java
+        ├── FuncionarioVet.java
+        ├── ItenEmprestimoVet.java
+        ├── LivroVet.java
+        ├── PeriodicoVet.java
+        └── ProfessorVet.java
+
 ```
 ###  Tecnologia Utilizada No Desenvolvimento ###
 - java se(Standard Edition) bibliotecas utilizadas
@@ -221,7 +218,8 @@ código-fonte escrito pela dupla.
   - Duration
   - Lambda
   - stream
-  - Tratando De Exceções
+  - Tratamento De Exceções
+  - Padrão de projeto Strategy
 - [ Maven](https://maven.apache.org/)
 - [ Itextpdf](https://itextpdf.com/)
 ###  Instalação ###
